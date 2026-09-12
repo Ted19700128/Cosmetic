@@ -19,7 +19,7 @@ ROOT = Path(__file__).parent
 SRC = ROOT / "index.html"
 OUT = ROOT / "dist" / "index.html"
 
-DEFAULT_URL = "https://ted19700128.github.io/Cosmetic"
+DEFAULT_URL = "https://yun-concierge.vercel.app"
 
 DESC = ("Answer four cards and one Korean beauty product is left standing — with the price band "
         "across eleven online stores and where it ranks cheapest.")
