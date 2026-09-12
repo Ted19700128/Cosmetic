@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+scraper/.cache/
+data/
+_backup_*.html

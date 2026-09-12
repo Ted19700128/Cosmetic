@@ -1,0 +1,1570 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yun Beauty Concierge</title>
+<meta name="description" content="Answer four cards and one Korean beauty product is left standing — with the price band across eleven online stores and where it ranks cheapest.">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0A0A0C">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%230A0A0C'/%3E%3Ccircle cx='32' cy='32' r='27' fill='none' stroke='%23C9A45C' stroke-width='2'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Georgia,serif' font-size='34' fill='%23E8C87E'%3EY%3C/text%3E%3C/svg%3E">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Yun Beauty Concierge">
+<meta property="og:description" content="Answer four cards and one Korean beauty product is left standing — with the price band across eleven online stores and where it ranks cheapest.">
+<meta property="og:image" content="https://yourname.dev/og.png">
+<meta property="og:url" content="https://yourname.dev/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Yun Beauty Concierge">
+<meta name="twitter:description" content="Answer four cards and one Korean beauty product is left standing — with the price band across eleven online stores and where it ranks cheapest.">
+<meta name="twitter:image" content="https://yourname.dev/og.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=IBM+Plex+Sans:wght@200;300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+</head>
+<body>
+<style>
+/* ============================================================
+   Yun Beauty Concierge — spotlight stage
+   Single dark theme. Every colour is painted explicitly.
+   ============================================================ */
+:root{
+  --void:#0A0A0C; --stage:#0D0D11; --card:#141418; --card-lit:#1B1B22; --card-hi:#22222C;
+  --edge:#25252E; --edge-lit:#3C3C49;
+  --ink:#F2EDE4; --ink2:#A29B8F; --ink3:#6C665D; --ink4:#4A453F;
+  --gold:#E8C87E; --gold-deep:#C9A45C; --gold-veil:var(--gold-fill-2);
+  --mint:#8FD6A8;
+  --serif:"Cormorant Garamond","Hoefler Text","Times New Roman",serif;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --deck:720px; --maxw:1120px;
+  --card-btm:#0E0E12; --top-bg:rgba(10,10,12,.72); --hair:rgba(255,255,255,.05);
+  --on-gold:#0A0A0C; --logo-c:#FFFFFF; --input-bg:#0C0C10; --ovl-bg:rgba(6,6,8,.82);
+  --beam:rgba(255,248,232,.16); --beam-2:rgba(255,248,232,.10);
+  --gold-line:rgba(232,200,126,.34); --gold-line-2:rgba(232,200,126,.7);
+  --gold-fill:rgba(232,200,126,.08); --gold-fill-2:rgba(232,200,126,.13); --gold-wash:rgba(232,200,126,.04);
+  --sweep:rgba(232,200,126,.10); --ghost:rgba(232,200,126,.05); --ghost-hi:rgba(232,200,126,.09);
+  --sh-card:0 24px 50px -34px rgba(0,0,0,.9); --sh-door:0 26px 54px -36px rgba(0,0,0,.9);
+  --sh-drop:rgba(0,0,0,.6); --sh-drop-lg:rgba(0,0,0,.85);
+  --halo-o:.14; --pshadow-o:.55;
+  --wash-1:rgba(232,200,126,.14); --wash-2:rgba(255,246,228,.10); --vignette:rgba(0,0,0,.62);
+}
+
+/* ------------------------------------------------------------------
+   Background palettes. Each swatch is a whole theme, not just a ground:
+   ink, edges and the accent move together so contrast survives.
+   --gold is the accent slot — it carries whatever colour the theme uses.
+------------------------------------------------------------------ */
+:root[data-theme="porcelain"]{
+  --void:#FBFAF8; --stage:#F3F1ED; --card:#FFFFFF; --card-lit:#FFFFFF; --card-hi:#F7F5F1; --card-btm:#FCFBF9;
+  --edge:#E4DFD6; --edge-lit:#CBC5B9;
+  --ink:#1B1A17; --ink2:#54514B; --ink3:#7A7469; --ink4:#948D82;
+  --gold:#8A6716; --gold-deep:#AE8E3E; --mint:#2C7A57;
+  --top-bg:rgba(251,250,248,.82); --hair:rgba(255,255,255,.9);
+  --on-gold:#FFFFFF; --logo-c:#1B1A17; --input-bg:#FBFAF6; --ovl-bg:rgba(60,56,48,.48);
+  --beam:rgba(196,164,96,.14); --beam-2:rgba(196,164,96,.09);
+  --gold-line:rgba(138,103,22,.3); --gold-line-2:rgba(138,103,22,.48);
+  --gold-fill:rgba(138,103,22,.07); --gold-fill-2:rgba(138,103,22,.12); --gold-wash:rgba(138,103,22,.045);
+  --sweep:rgba(138,103,22,.08); --ghost:rgba(138,103,22,.07); --ghost-hi:rgba(138,103,22,.12);
+  --sh-card:0 14px 34px -22px rgba(60,52,34,.3); --sh-door:0 18px 40px -24px rgba(60,52,34,.32);
+  --sh-drop:rgba(80,70,46,.18); --sh-drop-lg:rgba(80,70,46,.26);
+  --halo-o:.2; --pshadow-o:.12;
+  --wash-1:rgba(214,180,110,.2); --wash-2:rgba(255,250,240,.5); --vignette:rgba(70,62,48,.09);
+}
+:root[data-theme="blush"]{
+  --void:#FBEFF1; --stage:#F5E3E7; --card:#FFFCFC; --card-lit:#FFFFFF; --card-hi:#FDF4F5; --card-btm:#FDF6F7;
+  --edge:#EDD5DA; --edge-lit:#D9B4BE;
+  --ink:#33191F; --ink2:#6A4A52; --ink3:#916F79; --ink4:#AF8C98;
+  --gold:#B8425E; --gold-deep:#CE6E85; --mint:#2E7D62;
+  --top-bg:rgba(251,239,241,.84); --hair:rgba(255,255,255,.95);
+  --on-gold:#FFFFFF; --logo-c:#33191F; --input-bg:#FFF8F9; --ovl-bg:rgba(70,40,48,.46);
+  --beam:rgba(255,196,210,.34); --beam-2:rgba(255,196,210,.2);
+  --gold-line:rgba(184,66,94,.28); --gold-line-2:rgba(184,66,94,.45);
+  --gold-fill:rgba(184,66,94,.07); --gold-fill-2:rgba(184,66,94,.12); --gold-wash:rgba(184,66,94,.045);
+  --sweep:rgba(184,66,94,.08); --ghost:rgba(184,66,94,.07); --ghost-hi:rgba(184,66,94,.12);
+  --sh-card:0 14px 34px -22px rgba(120,60,75,.26); --sh-door:0 18px 40px -24px rgba(120,60,75,.28);
+  --sh-drop:rgba(120,70,84,.18); --sh-drop-lg:rgba(120,70,84,.24);
+  --halo-o:.22; --pshadow-o:.1;
+  --wash-1:rgba(255,182,199,.34); --wash-2:rgba(255,240,244,.6); --vignette:rgba(90,58,66,.09);
+}
+:root[data-theme="olive"]{
+  --void:#F1F6F1; --stage:#E6EEE6; --card:#FFFFFF; --card-lit:#FFFFFF; --card-hi:#F5FAF5; --card-btm:#FAFCFA;
+  --edge:#DAE4DA; --edge-lit:#B8C9B9;
+  --ink:#13221A; --ink2:#45564B; --ink3:#6A7C70; --ink4:#899A8F;
+  --gold:#00874C; --gold-deep:#35A272; --mint:#0F6B4A;
+  --top-bg:rgba(241,246,241,.84); --hair:rgba(255,255,255,.9);
+  --on-gold:#FFFFFF; --logo-c:#13221A; --input-bg:#F9FCF9; --ovl-bg:rgba(28,54,40,.48);
+  --beam:rgba(120,210,160,.2); --beam-2:rgba(120,210,160,.12);
+  --gold-line:rgba(0,135,76,.26); --gold-line-2:rgba(0,135,76,.42);
+  --gold-fill:rgba(0,135,76,.07); --gold-fill-2:rgba(0,135,76,.12); --gold-wash:rgba(0,135,76,.04);
+  --sweep:rgba(0,135,76,.08); --ghost:rgba(0,135,76,.07); --ghost-hi:rgba(0,135,76,.12);
+  --sh-card:0 14px 34px -22px rgba(30,70,50,.28); --sh-door:0 18px 40px -24px rgba(30,70,50,.3);
+  --sh-drop:rgba(40,80,60,.18); --sh-drop-lg:rgba(40,80,60,.26);
+  --halo-o:.2; --pshadow-o:.12;
+  --wash-1:rgba(120,205,160,.24); --wash-2:rgba(240,252,245,.6); --vignette:rgba(40,70,52,.09);
+}
+:root[data-theme="aqua"]{
+  --void:#EFF4F8; --stage:#E3EBF2; --card:#FFFFFF; --card-lit:#FFFFFF; --card-hi:#F4F9FC; --card-btm:#FAFCFE;
+  --edge:#D8E2EA; --edge-lit:#B4C4D3;
+  --ink:#111F2B; --ink2:#42525F; --ink3:#677887; --ink4:#8695A3;
+  --gold:#1E6FA8; --gold-deep:#4E93C4; --mint:#1F7A66;
+  --top-bg:rgba(239,244,248,.84); --hair:rgba(255,255,255,.9);
+  --on-gold:#FFFFFF; --logo-c:#111F2B; --input-bg:#F9FCFE; --ovl-bg:rgba(24,44,60,.48);
+  --beam:rgba(150,205,240,.24); --beam-2:rgba(150,205,240,.14);
+  --gold-line:rgba(30,111,168,.26); --gold-line-2:rgba(30,111,168,.44);
+  --gold-fill:rgba(30,111,168,.07); --gold-fill-2:rgba(30,111,168,.12); --gold-wash:rgba(30,111,168,.04);
+  --sweep:rgba(30,111,168,.08); --ghost:rgba(30,111,168,.07); --ghost-hi:rgba(30,111,168,.12);
+  --sh-card:0 14px 34px -22px rgba(30,60,85,.28); --sh-door:0 18px 40px -24px rgba(30,60,85,.3);
+  --sh-drop:rgba(40,70,95,.18); --sh-drop-lg:rgba(40,70,95,.26);
+  --halo-o:.2; --pshadow-o:.12;
+  --wash-1:rgba(140,200,238,.26); --wash-2:rgba(240,250,255,.6); --vignette:rgba(35,60,80,.09);
+}
+:root[data-theme="plum"]{
+  --void:#150920; --stage:#1B0D27; --card:#22112F; --card-lit:#2A1639; --card-hi:#331B44; --card-btm:#180A23;
+  --edge:#37204A; --edge-lit:#523269;
+  --ink:#F3EAF8; --ink2:#B7A3C6; --ink3:#8A759B; --ink4:#635271;
+  --gold:#D9A8FF; --gold-deep:#A97AD8; --mint:#7FD8B0;
+  --top-bg:rgba(21,9,32,.76); --hair:rgba(255,255,255,.06);
+  --on-gold:#1A0A24; --logo-c:#FFFFFF; --input-bg:#190B24; --ovl-bg:rgba(12,4,18,.82);
+  --beam:rgba(232,206,255,.16); --beam-2:rgba(232,206,255,.1);
+  --gold-line:rgba(217,168,255,.32); --gold-line-2:rgba(217,168,255,.62);
+  --gold-fill:rgba(217,168,255,.09); --gold-fill-2:rgba(217,168,255,.15); --gold-wash:rgba(217,168,255,.05);
+  --sweep:rgba(217,168,255,.1); --ghost:rgba(217,168,255,.06); --ghost-hi:rgba(217,168,255,.1);
+  --sh-card:0 24px 50px -34px rgba(0,0,0,.9); --sh-door:0 26px 54px -36px rgba(0,0,0,.9);
+  --sh-drop:rgba(0,0,0,.6); --sh-drop-lg:rgba(0,0,0,.85);
+  --halo-o:.16; --pshadow-o:.5;
+  --wash-1:rgba(217,168,255,.16); --wash-2:rgba(240,225,255,.08); --vignette:rgba(0,0,0,.6);
+}
+:root.wide{--maxw:1480px; --deck:860px}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--void); color:var(--ink);
+  font-family:var(--sans); font-size:16px; font-weight:300; line-height:1.7;
+  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+body::before{
+  content:""; position:fixed; inset:0; z-index:0; pointer-events:none;
+  background:
+    radial-gradient(78% 46% at 50% -8%, var(--wash-1), transparent 64%),
+    radial-gradient(38% 26% at 50% -2%, var(--wash-2), transparent 72%),
+    radial-gradient(120% 96% at 50% 34%, transparent 44%, var(--vignette) 100%);
+}
+main,header{position:relative; z-index:1}
+h1,h2,h3,h4{margin:0; font-weight:400; text-wrap:balance}
+p{margin:0}
+button{font:inherit; color:inherit; background:none; border:none; cursor:pointer; text-align:left}
+:focus-visible{outline:1px solid var(--gold); outline-offset:4px; border-radius:4px}
+.wrap{width:100%; max-width:var(--maxw); margin:0 auto; padding:0 24px}
+.eyebrow{font-family:var(--mono); font-size:10.5px; letter-spacing:.28em; text-transform:uppercase; color:var(--ink3)}
+.num{font-family:var(--mono); font-variant-numeric:tabular-nums}
+.hidden{display:none !important}
+
+/* ---------------------------------------------- top bar */
+.top{position:sticky; top:0; z-index:30; backdrop-filter:blur(12px); background:var(--top-bg); border-bottom:1px solid var(--hair)}
+.top-in{display:grid; grid-template-columns:1fr auto 1fr; align-items:center; height:62px; gap:20px}
+.mark{display:flex; align-items:center; gap:12px; justify-self:start; min-width:0}
+.mark-g{width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-size:19px; font-weight:500; line-height:1; padding-bottom:2px; color:var(--gold); border:1px solid var(--gold-deep); background:radial-gradient(60% 60% at 50% 22%, var(--gold-line), transparent 70%)}
+.mark-s{font-family:var(--mono); font-size:11.5px; letter-spacing:.26em; color:var(--logo-c); text-transform:uppercase; display:block}
+.tabs{display:flex; gap:26px; justify-self:center}
+.tabs button{font-size:13px; color:var(--ink3); padding:4px 0; position:relative; letter-spacing:.04em; transition:color .3s}
+.tabs button:hover{color:var(--ink2)}
+.tabs button[aria-selected="true"]{color:var(--gold)}
+.tabs button[aria-selected="true"]::after{content:""; position:absolute; left:0; right:0; bottom:-2px; height:1px; background:var(--gold)}
+.tools{display:flex; align-items:center; gap:6px; justify-self:end}
+.tool{width:30px; height:30px; border-radius:9px; border:1px solid transparent; display:grid; place-items:center; color:var(--ink3); transition:color .25s, border-color .25s, background .25s}
+.tool:hover{color:var(--gold); border-color:var(--gold-line); background:var(--gold-fill)}
+.tool.danger:hover{color:#E8896E; border-color:rgba(232,137,110,.4); background:rgba(232,137,110,.08)}
+.src{font-family:var(--mono); font-size:8.5px; letter-spacing:.16em; text-transform:uppercase; padding:4px 9px; border-radius:99px; border:1px solid var(--gold-line); color:var(--gold-deep); white-space:nowrap; margin-right:10px}
+.src.live{border-color:var(--mint); color:var(--mint)}
+.swatches{display:flex; align-items:center; gap:7px}
+.sw{width:20px; height:20px; border-radius:50%; display:grid; place-items:center; padding:0; transition:transform .22s cubic-bezier(.16,.84,.24,1)}
+.sw:hover{transform:scale(1.16)}
+.sw-dot{width:15px; height:15px; border-radius:50%; display:block; box-shadow:inset 0 0 0 1px rgba(128,128,128,.42); transition:box-shadow .25s}
+.sw[aria-checked="true"] .sw-dot{box-shadow:inset 0 0 0 1px rgba(128,128,128,.42), 0 0 0 2px var(--void), 0 0 0 3.5px var(--gold)}
+.tsep{width:1px; height:18px; background:var(--edge); margin:0 5px; flex:none}
+.tool svg{display:block}
+
+/* ---------------------------------------------- entrance: three squares */
+.gate{min-height:calc(100vh - 62px); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:60px 0 76px}
+.gate-head{text-align:center; margin-bottom:46px}
+.gate-head .eyebrow{display:block; margin-bottom:18px}
+.gate-h{font-family:var(--serif); font-size:clamp(32px,4.4vw,52px); line-height:1.16}
+.gate-h em{font-style:normal; color:var(--gold)}
+.gate-sub{color:var(--ink3); font-size:13.5px; margin-top:16px; letter-spacing:.02em}
+.doors{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; width:100%; max-width:960px}
+.door{
+  position:relative; overflow:hidden; aspect-ratio:1; border:1px solid var(--edge); border-radius:24px;
+  background:linear-gradient(180deg,var(--card-lit) 0%,var(--card) 54%,var(--card-btm) 100%);
+  padding:28px; display:flex; flex-direction:column;
+  transition:border-color .45s, transform .45s cubic-bezier(.16,.84,.24,1), box-shadow .45s;
+  box-shadow:inset 0 1px 0 var(--hair), var(--sh-door);
+}
+.door::before{
+  content:""; position:absolute; top:-76px; left:50%; translate:-50%; width:160%; height:200px; pointer-events:none;
+  background:radial-gradient(50% 100% at 50% 0, var(--beam), transparent 74%);
+  opacity:.66; transition:opacity .5s;
+}
+.door::after{
+  content:""; position:absolute; top:0; left:16%; right:16%; height:1px; pointer-events:none;
+  background:linear-gradient(90deg,transparent,var(--gold-line-2),transparent);
+  opacity:.36; transition:opacity .5s;
+}
+.door:hover{border-color:var(--gold-line); transform:translateY(-6px)}
+.door:hover::before{opacity:1}
+.door:hover::after{opacity:1}
+.door-n{font-family:var(--mono); font-size:10.5px; letter-spacing:.24em; color:var(--ink4); transition:color .4s}
+.door:hover .door-n{color:var(--gold-deep)}
+.door-t{font-family:var(--serif); font-size:34px; line-height:1.1; margin-top:auto; transition:color .4s}
+.door:hover .door-t{color:var(--gold)}
+.door-d{font-size:12.5px; color:var(--ink3); margin-top:10px; line-height:1.55}
+.door-m{font-family:var(--mono); font-size:9.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink4); margin-top:16px; padding-top:14px; border-top:1px solid var(--edge); display:flex; align-items:center; gap:8px}
+.door-m b{color:var(--ink2); font-weight:400}
+.door-ghost{position:absolute; right:16px; top:-22px; font-family:var(--serif); font-size:120px; font-weight:500; line-height:1; color:var(--ghost); pointer-events:none; transition:color .5s}
+.door:hover .door-ghost{color:var(--ghost-hi)}
+
+/* ---------------------------------------------- stage: four square cards */
+.stage{min-height:calc(100vh - 62px); display:flex; flex-direction:column; justify-content:center; padding:44px 0 64px}
+.stage-head{text-align:center; margin-bottom:32px}
+.stage-head .eyebrow{display:block; margin-bottom:12px}
+.stage-sub{color:var(--ink3); font-size:13.5px; letter-spacing:.02em}
+.deck{
+  display:grid; grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px; width:100%; max-width:var(--deck); margin:0 auto; position:relative;
+}
+.slot{
+  position:relative; overflow:hidden; aspect-ratio:1; border:1px solid var(--edge); border-radius:24px;
+  background:linear-gradient(180deg,var(--card-lit) 0%,var(--card) 54%,var(--card-btm) 100%);
+  padding:26px 28px 24px; display:flex; flex-direction:column; justify-content:center;
+  transition:border-color .45s, transform .45s cubic-bezier(.16,.84,.24,1), opacity .35s, box-shadow .45s;
+  box-shadow:inset 0 1px 0 var(--hair), var(--sh-card);
+}
+.slot-head{position:absolute; top:26px; left:28px; right:28px; display:flex; flex-direction:column}
+.slot::before{
+  content:""; position:absolute; top:-76px; left:50%; translate:-50%; width:160%; height:200px; pointer-events:none;
+  background:radial-gradient(50% 100% at 50% 0, var(--beam), transparent 74%);
+  opacity:.66; transition:opacity .5s;
+}
+.slot::after{
+  content:""; position:absolute; top:0; left:16%; right:16%; height:1px; pointer-events:none;
+  background:linear-gradient(90deg,transparent,var(--gold-line-2),transparent);
+  opacity:.36; transition:opacity .5s;
+}
+.slot:hover{border-color:var(--edge-lit); transform:translateY(-5px)}
+.slot:hover::before{opacity:1}
+.slot:hover::after{opacity:.9}
+.slot-n{font-family:var(--mono); font-size:10.5px; letter-spacing:.24em; color:var(--ink4); transition:color .4s}
+.slot:hover .slot-n{color:var(--gold-deep)}
+.slot-k{font-family:var(--mono); font-size:10.5px; text-transform:uppercase; color:var(--ink3); letter-spacing:.2em; margin-top:5px}
+.slot-v{font-family:var(--serif); font-size:clamp(26px,2.9vw,33px); line-height:1.18; color:var(--ink4); transition:color .5s}
+.slot-d{font-size:12px; color:var(--ink4); margin-top:10px; line-height:1.5; transition:color .5s}
+.slot.filled{border-color:var(--gold-line)}
+.slot.filled::after{opacity:1}
+.slot.filled::before{opacity:1}
+.slot.filled .slot-v{color:var(--gold)}
+.slot.filled .slot-d{color:var(--ink2)}
+.slot.filled .slot-n{color:var(--gold-deep)}
+.slot-re{position:absolute; right:26px; bottom:24px; font-family:var(--mono); font-size:9.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink4); opacity:0; transition:opacity .35s, color .35s}
+.slot:hover .slot-re{opacity:1; color:var(--gold-deep)}
+@media (hover:none){.slot-re{opacity:1}}
+.cell{position:relative; display:block; min-width:0}
+.cell .slot{width:100%}
+.clear{position:absolute; top:14px; right:14px; z-index:3; width:26px; height:26px; border-radius:50%; border:1px solid var(--edge); background:var(--card); display:grid; place-items:center; color:var(--ink4); opacity:0; transition:opacity .3s, color .3s, border-color .3s}
+.cell:hover .clear, .clear:focus-visible{opacity:1}
+.clear:hover{color:var(--gold); border-color:var(--gold-line)}
+@media (hover:none){.clear{opacity:1}}
+.ghost{position:absolute; right:16px; top:-22px; font-family:var(--serif); font-size:120px; font-weight:500; line-height:1; color:var(--ghost); pointer-events:none; transition:color .5s}
+.slot:hover .ghost{color:var(--ghost-hi)}
+.slot.filled .ghost{color:var(--gold-fill)}
+
+/* opened card */
+.deck.open-mode .slot:not(.open){opacity:0; pointer-events:none; transform:scale(.96)}
+.deck.open-mode .clear{display:none}
+.slot.open{grid-column:1/-1; grid-row:1/-1; z-index:6; cursor:default; aspect-ratio:auto; padding:30px 34px 26px; justify-content:flex-start}
+.slot.open .slot-head{position:static}
+.slot.open:hover{transform:none; border-color:var(--gold-line)}
+.slot.open::before{opacity:1}
+.slot.open::after{opacity:1}
+.open-head{display:flex; align-items:flex-start; gap:20px}
+.open-k{font-family:var(--mono); font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--gold-deep); margin-left:14px}
+.open-q{font-family:var(--serif); font-size:clamp(24px,2.8vw,31px); line-height:1.28; margin-top:8px}
+.open-d{font-size:12.5px; color:var(--ink3); margin-top:9px; max-width:60ch; line-height:1.65}
+.shut{margin-left:auto; flex:none; width:32px; height:32px; border:1px solid var(--edge-lit); border-radius:50%; display:grid; place-items:center; color:var(--ink3); transition:.3s}
+.shut:hover{color:var(--gold); border-color:var(--gold-deep)}
+.olist{display:flex; flex-direction:column; margin-top:20px; border-top:1px solid var(--edge)}
+.orow{display:flex; align-items:center; gap:20px; padding:14px 10px 14px 4px; border-bottom:1px solid var(--edge); position:relative; overflow:hidden; transition:padding-left .35s}
+.orow::before{content:""; position:absolute; inset:0; background:linear-gradient(90deg,var(--sweep),transparent 62%); opacity:0; transition:opacity .35s}
+.orow:hover{padding-left:16px}
+.orow:hover::before{opacity:1}
+.oi{font-family:var(--mono); font-size:10.5px; letter-spacing:.16em; color:var(--ink4); width:26px; flex:none; position:relative; transition:color .3s}
+.ot{font-family:var(--serif); font-size:23px; color:var(--ink); position:relative; flex:none; min-width:190px; transition:color .3s}
+.od{font-size:12.5px; color:var(--ink3); position:relative; margin-left:auto; text-align:right; transition:color .3s}
+.orow:hover .oi{color:var(--gold-deep)}
+.orow:hover .ot{color:var(--gold)}
+.orow:hover .od{color:var(--ink2)}
+.oc{position:relative; color:var(--ink4); flex:none; transition:.3s}
+.orow:hover .oc{color:var(--gold); transform:translateX(3px)}
+
+/* progress */
+.rail{display:flex; align-items:center; justify-content:center; gap:14px; margin-top:30px}
+.rail i{width:34px; height:1px; background:var(--edge-lit); position:relative; overflow:hidden}
+.rail i::after{content:""; position:absolute; inset:0; background:var(--gold); transform:scaleX(0); transform-origin:left; transition:transform .6s cubic-bezier(.16,.84,.24,1)}
+.rail i.on::after{transform:scaleX(1)}
+.rail span{font-family:var(--mono); font-size:10px; letter-spacing:.24em; color:var(--ink3)}
+.stage-foot{text-align:center; margin-top:18px; font-size:12.5px; color:var(--ink3); min-height:20px}
+.reset{color:var(--ink3); font-size:12.5px; border-bottom:1px solid var(--ink4); padding-bottom:1px; transition:.3s}
+.reset:hover{color:var(--gold); border-color:var(--gold-deep)}
+
+@keyframes rise{from{opacity:0; transform:translateY(18px)} to{opacity:1; transform:none}}
+@keyframes glow{from{opacity:0} to{opacity:1}}
+.anim{animation:rise .6s cubic-bezier(.16,.84,.24,1) both}
+</style>
+<style>
+/* ---------------------------------------------- result page */
+.reveal{padding:44px 0 90px; min-height:calc(100vh - 62px)}
+.reveal-head{text-align:center; margin-bottom:8px}
+.reveal-head .eyebrow{display:block; margin-bottom:16px}
+.reveal-h1{font-family:var(--serif); font-size:clamp(32px,4.2vw,50px); line-height:1.24}
+.reveal-h1 em{font-style:normal; color:var(--gold)}
+.picks{display:flex; justify-content:center; gap:8px; flex-wrap:wrap; margin-top:20px}
+.pchip{font-family:var(--mono); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; padding:5px 13px; border-radius:99px; border:1px solid var(--edge-lit); color:var(--ink2); white-space:nowrap}
+.pchip.g{border-color:var(--gold-line); color:var(--gold)}
+
+.altar{display:grid; grid-template-columns:340px 1fr; gap:52px; align-items:center; margin:26px 0 56px; position:relative}
+.podium{position:relative; display:grid; place-items:center; min-height:400px}
+.podium::before{
+  content:""; position:absolute; top:-70px; left:50%; translate:-50%; width:560px; height:560px; pointer-events:none;
+  background:radial-gradient(circle at 50% 22%, rgba(255,244,224,.13), rgba(232,200,126,.045) 32%, transparent 60%);
+  animation:glow 1.4s ease both;
+}
+.podium::after{
+  content:""; position:absolute; bottom:34px; left:50%; translate:-50%; width:300px; height:56px; pointer-events:none;
+  background:radial-gradient(50% 50% at 50% 50%, rgba(232,200,126,.16), transparent 72%);
+}
+.podium svg{width:100%; max-width:252px; position:relative; z-index:1; filter:drop-shadow(0 34px 44px var(--sh-drop-lg)); animation:rise .9s cubic-bezier(.16,.84,.24,1) both}
+.podium .plate{position:absolute; bottom:30px; left:50%; translate:-50%; width:250px; height:1px; background:linear-gradient(90deg,transparent,var(--gold-line-2),transparent)}
+
+.verdict{display:flex; flex-direction:column}
+.v-score{display:inline-flex; align-items:center; gap:12px; font-family:var(--mono); font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); margin-bottom:16px}
+.v-score::before{content:""; width:26px; height:1px; background:var(--gold-deep)}
+.v-brand{font-family:var(--mono); font-size:10.5px; letter-spacing:.22em; text-transform:uppercase; color:var(--ink3)}
+.v-name{font-family:var(--serif); font-size:clamp(30px,3.8vw,42px); line-height:1.2; margin:10px 0 9px}
+.v-spec{font-size:12.5px; color:var(--ink3)}
+.v-why{font-size:14.5px; color:var(--ink2); line-height:1.8; margin:22px 0; max-width:56ch}
+.rlist{display:flex; flex-direction:column; gap:9px; margin-bottom:26px}
+.r{display:flex; gap:12px; align-items:flex-start; font-size:13px; color:var(--ink2); line-height:1.6}
+.r svg{flex:none; margin-top:5px; color:var(--gold-deep)}
+.v-buy{display:flex; align-items:flex-end; gap:26px; flex-wrap:wrap; padding-top:22px; border-top:1px solid var(--edge)}
+.v-price{display:flex; flex-direction:column; gap:3px}
+.v-price .num{font-size:34px; font-weight:400; letter-spacing:-.02em; line-height:1.1; color:var(--gold)}
+.v-price small{font-family:var(--mono); font-size:9.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink3)}
+.v-save{font-size:12.5px; color:var(--ink3); line-height:1.65; max-width:26ch}
+.v-save b{color:var(--mint); font-weight:400}
+
+.channels{margin:0 0 60px}
+.sec{display:flex; align-items:center; gap:16px; margin-bottom:18px}
+.sec h3{font-family:var(--serif); font-size:24px; white-space:nowrap}
+.sec .line{flex:1; height:1px; background:var(--edge)}
+.sec .eyebrow{white-space:nowrap}
+.ctable{width:100%; border-collapse:collapse}
+.ctable th{text-align:left; font-family:var(--mono); font-size:9.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--ink4); font-weight:400; padding-bottom:10px; border-bottom:1px solid var(--edge)}
+.ctable td{padding:14px 0; border-bottom:1px solid var(--edge); font-size:14px; color:var(--ink2)}
+.ctable tr:hover td{color:var(--ink)}
+.ctable th:last-child{text-align:right}
+.ctable td:last-child{text-align:right; font-family:var(--mono); font-variant-numeric:tabular-nums}
+.ctable tr.best td{color:var(--gold)}
+.bmark{font-family:var(--mono); font-size:9px; letter-spacing:.14em; text-transform:uppercase; color:var(--on-gold); background:var(--gold); padding:2px 9px; border-radius:99px; margin-left:12px; vertical-align:middle}
+
+.budget{display:flex; align-items:center; gap:22px; padding:18px 22px; border:1px solid var(--edge); border-radius:16px; background:linear-gradient(180deg,var(--card),var(--card-btm)); margin-bottom:44px; flex-wrap:wrap}
+.budget-l{font-family:var(--mono); font-size:9.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--ink3); flex:none}
+.budget input[type=range]{flex:1; min-width:180px; height:22px; cursor:pointer; margin:0; -webkit-appearance:none; appearance:none; background:transparent}
+input[type=range]::-webkit-slider-runnable-track{height:2px; background:var(--edge-lit); border-radius:2px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none; width:13px; height:13px; margin-top:-5.5px; border-radius:50%; background:var(--gold); box-shadow:0 0 0 5px rgba(232,200,126,.14)}
+input[type=range]::-moz-range-track{height:2px; background:var(--edge-lit); border-radius:2px}
+input[type=range]::-moz-range-thumb{width:13px; height:13px; border:none; border-radius:50%; background:var(--gold)}
+.budget b{font-family:var(--mono); font-size:14px; font-weight:400; color:var(--gold); min-width:86px; text-align:right; font-variant-numeric:tabular-nums}
+
+.grid{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px}
+.card{border:1px solid var(--edge); border-radius:16px; overflow:hidden; background:linear-gradient(180deg,var(--card) 0%,var(--card-btm) 100%); display:flex; flex-direction:column; transition:border-color .4s, transform .4s cubic-bezier(.16,.84,.24,1); height:100%}
+.card:hover{border-color:var(--edge-lit); transform:translateY(-5px)}
+.card-shot{position:relative; aspect-ratio:4/3.2; display:grid; place-items:center; overflow:hidden; border-bottom:1px solid var(--edge)}
+.card-shot::before{content:""; position:absolute; top:-40px; left:50%; translate:-50%; width:140%; height:120px; background:radial-gradient(50% 100% at 50% 0,var(--beam-2),transparent 72%); opacity:.6; transition:opacity .4s}
+.card:hover .card-shot::before{opacity:1}
+.card-shot svg{height:84%; width:auto; position:relative; z-index:1; filter:drop-shadow(0 14px 18px var(--sh-drop))}
+.rk{position:absolute; top:11px; left:12px; z-index:2; font-family:var(--mono); font-size:9.5px; letter-spacing:.14em; color:var(--ink3)}
+.sc{position:absolute; top:11px; right:12px; z-index:2; font-family:var(--mono); font-size:9.5px; letter-spacing:.08em; color:var(--gold); border:1px solid var(--gold-line); border-radius:99px; padding:2px 8px}
+.card-b{padding:15px 16px 16px; display:flex; flex-direction:column; gap:4px; flex:1}
+.card-br{font-family:var(--mono); font-size:9.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink3)}
+.card-n{font-family:var(--serif); font-size:19px; color:var(--ink); line-height:1.28; margin-top:2px}
+.card-sp{font-size:11.5px; color:var(--ink4); margin-top:2px}
+.tags{display:flex; gap:5px; flex-wrap:wrap; margin-top:10px}
+.tag{font-family:var(--mono); font-size:9.5px; letter-spacing:.06em; padding:2px 9px; border-radius:99px; border:1px solid var(--edge); color:var(--ink3)}
+.tag.hit{border-color:var(--gold-line); color:var(--gold-deep)}
+.card-f{margin-top:auto; padding-top:14px; display:flex; align-items:flex-end; justify-content:space-between; gap:8px}
+.card-p .num{font-size:15.5px; color:var(--gold)}
+.card-p small{display:block; font-size:10.5px; color:var(--ink4); margin-top:3px}
+.rate{font-family:var(--mono); font-size:10.5px; color:var(--ink3); white-space:nowrap}
+.rate b{color:var(--gold-deep); font-weight:400}
+
+.actions{display:flex; justify-content:center; gap:14px; margin-top:56px; flex-wrap:wrap}
+.btn{padding:13px 26px; border-radius:99px; border:1px solid var(--edge-lit); font-size:13px; color:var(--ink2); transition:.35s; letter-spacing:.03em}
+.btn:hover{color:var(--gold); border-color:var(--gold-deep)}
+.btn.p{border-color:var(--gold-deep); color:var(--gold); background:var(--gold-fill)}
+.btn.p:hover{background:var(--gold-fill-2)}
+
+/* ---------------------------------------------- catalog · store */
+.page{padding:52px 0 90px}
+.page-h{font-family:var(--serif); font-size:clamp(34px,4.2vw,50px); line-height:1.2; margin-bottom:16px}
+.page-h em{font-style:normal; color:var(--gold)}
+.page-d{color:var(--ink3); font-size:14px; max-width:64ch; line-height:1.8}
+.filters{margin:34px 0 28px; display:flex; flex-direction:column; gap:11px; padding:22px 24px; border:1px solid var(--edge); border-radius:18px; background:linear-gradient(180deg,var(--card),var(--card-btm))}
+.frow{display:flex; align-items:center; gap:14px; flex-wrap:wrap}
+.flab{font-family:var(--mono); font-size:9.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--ink4); width:88px; flex:none}
+.fchips{display:flex; gap:6px; flex-wrap:wrap}
+.fchip{font-size:12.5px; padding:5px 14px; border-radius:99px; border:1px solid var(--edge); color:var(--ink3); transition:.28s}
+.fchip:hover{border-color:var(--edge-lit); color:var(--ink2)}
+.fchip.on{border-color:var(--gold-deep); color:var(--gold); background:var(--gold-fill)}
+.fq{flex:1; min-width:200px; padding:9px 14px; border-radius:10px; border:1px solid var(--edge); background:var(--input-bg); color:var(--ink); font-size:13px; font-family:var(--sans); font-weight:300}
+.fq::placeholder{color:var(--ink4)}
+.cnt{font-family:var(--mono); font-size:10.5px; letter-spacing:.14em; color:var(--ink4); margin-left:auto}
+
+/* store cards */
+.stores{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin:34px 0 66px}
+.store{position:relative; overflow:hidden; border:1px solid var(--edge); border-radius:18px; padding:22px 24px 20px; background:linear-gradient(180deg,var(--card) 0%,var(--card-btm) 100%); display:flex; flex-direction:column; transition:border-color .4s, transform .4s cubic-bezier(.16,.84,.24,1)}
+.store::before{content:""; position:absolute; top:-60px; left:50%; translate:-50%; width:160%; height:150px; pointer-events:none; background:radial-gradient(50% 100% at 50% 0,var(--beam-2),transparent 74%); opacity:.6; transition:opacity .4s}
+.store:hover{border-color:var(--edge-lit); transform:translateY(-4px)}
+.store:hover::before{opacity:1}
+.store.lead{border-color:var(--gold-line)}
+.store.lead::before{opacity:1}
+.store-r{font-family:var(--mono); font-size:9.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--ink4)}
+.store-n{font-family:var(--serif); font-size:26px; line-height:1.2; margin-top:8px}
+.store.lead .store-n{color:var(--gold)}
+.store-s{font-size:12px; color:var(--ink3); margin-top:8px; line-height:1.5}
+.smetrics{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-top:auto; padding-top:18px}
+.sm{display:flex; flex-direction:column; gap:3px}
+.sm b{font-family:var(--mono); font-size:20px; font-weight:400; color:var(--ink); line-height:1; font-variant-numeric:tabular-nums}
+.sm span{font-family:var(--mono); font-size:9px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink4)}
+.sbar{height:2px; background:var(--edge); border-radius:2px; margin-top:18px; overflow:hidden}
+.sbar i{display:block; height:100%; background:var(--gold-deep); border-radius:2px}
+.store.lead .sbar i{background:var(--gold)}
+.sbar-l{display:flex; justify-content:space-between; font-family:var(--mono); font-size:9px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink4); margin-top:8px}
+
+.pipe{display:grid; grid-template-columns:1fr 1fr; gap:52px; align-items:start; margin-top:38px}
+.pipe p{color:var(--ink3); font-size:13.5px; line-height:1.85; max-width:60ch}
+.pstep{display:grid; grid-template-columns:30px 1fr; gap:18px; padding:17px 0; border-bottom:1px solid var(--edge)}
+.pstep:first-child{border-top:1px solid var(--edge)}
+.pstep .n{font-family:var(--mono); font-size:10.5px; letter-spacing:.14em; color:var(--gold-deep); padding-top:5px}
+.pstep h4{font-family:var(--serif); font-size:19px; color:var(--ink); margin-bottom:4px; font-weight:500}
+.pstep p{font-size:12.5px; color:var(--ink4); line-height:1.72}
+.note{margin-top:28px; padding:17px 19px; border:1px solid var(--gold-line); border-radius:14px; background:var(--gold-wash); font-size:12.5px; color:var(--ink2); line-height:1.75; display:flex; gap:12px}
+.note b{color:var(--gold); font-weight:500}
+.foot{border-top:1px solid var(--edge); padding:26px 0 54px; display:flex; gap:20px; flex-wrap:wrap; font-size:11.5px; color:var(--ink4); align-items:center}
+
+/* ---------------------------------------------- detail */
+.ovl{position:fixed; inset:0; z-index:60; background:var(--ovl-bg); backdrop-filter:blur(7px); display:grid; place-items:center; padding:24px; animation:glow .25s both}
+.modal{position:relative; width:100%; max-width:800px; max-height:88vh; overflow:auto; border:1px solid var(--edge-lit); border-radius:22px; background:linear-gradient(180deg,var(--card-lit),var(--card) 40%,var(--card-btm)); animation:rise .4s cubic-bezier(.16,.84,.24,1) both}
+.modal-in{display:grid; grid-template-columns:270px 1fr}
+.modal-shot{position:relative; display:grid; place-items:center; padding:34px; border-right:1px solid var(--edge)}
+.modal-shot::before{content:""; position:absolute; top:0; left:50%; translate:-50%; width:150%; height:160px; background:radial-gradient(50% 100% at 50% 0,var(--beam-2),transparent 72%)}
+.modal-shot svg{width:100%; max-width:180px; position:relative; z-index:1; filter:drop-shadow(0 22px 28px var(--sh-drop-lg))}
+.modal-b{padding:30px 30px 28px}
+.x{position:absolute; top:16px; right:18px; z-index:3; width:32px; height:32px; border:1px solid var(--edge-lit); border-radius:50%; display:grid; place-items:center; color:var(--ink3); transition:.3s}
+.x:hover{color:var(--gold); border-color:var(--gold-deep)}
+.kv{display:grid; grid-template-columns:88px 1fr; gap:9px 16px; font-size:12.5px; margin:20px 0; padding:18px 0; border-top:1px solid var(--edge); border-bottom:1px solid var(--edge)}
+.kv dt{font-family:var(--mono); font-size:9.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink4); padding-top:3px}
+.kv dd{margin:0; color:var(--ink2)}
+
+.rv-note{font-size:11.5px; color:var(--ink4); line-height:1.6; margin:-6px 0 20px; max-width:76ch}
+.vd{border:1px solid var(--edge); border-radius:18px; padding:24px 26px 22px; background:linear-gradient(180deg,var(--card),var(--card-btm)); margin-bottom:60px}
+.vd-top{display:flex; align-items:center; gap:18px; flex-wrap:wrap; padding-bottom:18px; border-bottom:1px solid var(--edge)}
+.vd-share{font-family:var(--mono); font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink3); white-space:nowrap}
+.vd-share b{font-family:var(--serif); font-size:30px; font-weight:500; letter-spacing:0; text-transform:none; color:var(--gold); margin-right:7px; vertical-align:-3px}
+.vd-meter{flex:1; min-width:140px; height:3px; border-radius:3px; background:var(--edge); overflow:hidden}
+.vd-meter i{display:block; height:100%; background:var(--mint); border-radius:3px}
+.vd-n{font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; color:var(--ink4); white-space:nowrap}
+.vd-sum{font-size:15px; color:var(--ink2); line-height:1.75; margin:20px 0 24px; max-width:70ch}
+.vd-sum b{color:var(--ink); font-weight:400}
+.vdgrid{display:grid; grid-template-columns:1fr 1fr; gap:20px 40px}
+.vdcol{display:flex; flex-direction:column; gap:11px}
+.vd-h{font-family:var(--mono); font-size:9.5px; letter-spacing:.2em; text-transform:uppercase; padding-bottom:12px; border-bottom:1px solid var(--edge)}
+.vd-h.good{color:var(--mint)}
+.vd-h.bad{color:var(--gold-deep)}
+.vd-row{display:grid; grid-template-columns:1fr 92px 34px; align-items:center; gap:14px}
+.vd-k{font-size:13px; color:var(--ink2); line-height:1.4}
+.vd-k i{display:block; font-style:normal; font-size:10.5px; color:var(--ink4); margin-top:2px; font-family:"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif}
+.vd-track{height:3px; border-radius:3px; background:var(--edge); overflow:hidden}
+.vd-track i{display:block; height:100%; border-radius:3px}
+.vd-track.good i{background:var(--mint)}
+.vd-track.bad i{background:var(--gold-deep)}
+.vd-p{font-family:var(--mono); font-size:11px; color:var(--ink3); text-align:right; font-variant-numeric:tabular-nums}
+.warn{display:flex; gap:11px; align-items:flex-start; padding:13px 16px; border:1px solid var(--gold-line); border-radius:12px; background:var(--gold-wash); font-size:12.5px; color:var(--ink2); line-height:1.65; margin-bottom:22px}
+.warn b{color:var(--gold); font-weight:500}
+.warn svg{flex:none; margin-top:3px; color:var(--gold-deep)}
+.fake{display:inline-block; font-family:var(--mono); font-size:8.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold-deep); border:1px solid var(--gold-line); border-radius:99px; padding:2px 8px; vertical-align:middle; margin-left:10px}
+.ch-link{display:inline-flex; align-items:center; gap:6px; color:inherit; text-decoration:none; border-bottom:1px solid transparent; transition:color .25s, border-color .25s}
+.ch-link svg{opacity:.32; transition:opacity .25s, transform .25s}
+.ctable tr:hover .ch-link{color:var(--gold); border-bottom-color:var(--gold-line)}
+.ctable tr:hover .ch-link svg{opacity:.75}
+.ch-link:hover{color:var(--gold); border-bottom-color:var(--gold-line)}
+.ch-link:hover svg{opacity:1; transform:translate(1px,-1px)}
+.v-price .ch-link{border-bottom-color:var(--gold-line)}
+.empty{grid-column:1/-1; text-align:center; padding:76px 20px; border:1px dashed var(--edge); border-radius:18px; color:var(--ink3); font-size:13.5px}
+.halo{opacity:var(--halo-o)}
+.pshadow{opacity:var(--pshadow-o)}
+.empty b{display:block; font-family:var(--serif); font-size:24px; color:var(--ink); margin-bottom:10px; font-weight:400}
+
+@media (max-width:1000px){
+  .altar{grid-template-columns:1fr; gap:12px}
+  .podium{min-height:330px}
+  .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .stores{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .pipe{grid-template-columns:1fr; gap:34px}
+}
+@media (max-width:900px){
+  .top-in{grid-template-columns:1fr auto; height:auto; padding:9px 0; row-gap:6px}
+  .mark{grid-column:1; grid-row:1}
+  .tools{grid-column:2; grid-row:1}
+  .tabs{grid-column:1/-1; grid-row:2; justify-self:center}
+}
+@media (max-width:760px){
+  .wrap{padding:0 16px}
+  .top-in{gap:10px}
+  .swatches{gap:5px}
+  .sw{width:18px; height:18px}
+  .sw-dot{width:13px; height:13px}
+  .mark-s{font-size:9px; letter-spacing:.24em}
+  .mark-g{width:30px; height:30px; font-size:17px}
+  .mark{min-width:0}
+  .tabs{gap:15px}
+  .tabs button{font-size:12px; white-space:nowrap}
+  .gate{min-height:0; padding:40px 0 60px}
+  .doors{grid-template-columns:1fr; gap:12px; max-width:420px}
+  .door{aspect-ratio:auto; min-height:170px; padding:22px 24px}
+  .door-t{font-size:29px}
+  .door-ghost,.ghost{font-size:96px; top:-16px}
+  .deck{grid-template-columns:1fr; gap:12px; max-width:420px}
+  .slot{aspect-ratio:auto; min-height:158px; padding:22px 24px}
+  .slot-v{font-size:26px}
+  .slot.open{grid-column:1; grid-row:auto; min-height:440px}
+  .orow{gap:12px; padding:12px 6px 12px 2px}
+  .ot{min-width:0; font-size:19px}
+  .od{display:none}
+  .modal-in{grid-template-columns:1fr}
+  .modal-shot{border-right:none; border-bottom:1px solid var(--edge)}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stores{grid-template-columns:1fr}
+  .vdgrid{grid-template-columns:1fr; gap:16px}
+  .stage{min-height:0; padding:36px 0 56px}
+  .flab{width:100%}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .anim,.podium svg,.podium::before,.modal,.ovl{animation:none !important}
+  *{transition-duration:.01ms !important}
+}
+</style>
+<header class="top">
+  <div class="wrap top-in">
+    <div class="mark">
+      <span class="mark-g" aria-hidden="true">Y</span>
+      <span class="mark-s">Yun Beauty Concierge</span>
+    </div>
+    <nav class="tabs" id="tabs" role="tablist" aria-label="Switch section">
+      <button role="tab" id="tab-gate" aria-selected="true" data-view="gate">Home</button>
+      <button role="tab" id="tab-shop" aria-selected="false" data-view="shop">Concierge</button>
+      <button role="tab" id="tab-catalog" aria-selected="false" data-view="catalog">Catalog</button>
+      <button role="tab" id="tab-store" aria-selected="false" data-view="store">Store</button>
+    </nav>
+    <div class="tools">
+      <span class="src" id="src"></span>
+      <div class="swatches" id="swatches" role="radiogroup" aria-label="Background colour"></div>
+      <span class="tsep" aria-hidden="true"></span>
+      <button class="tool" id="t-full" title="Fullscreen" aria-label="Toggle fullscreen"></button>
+      <button class="tool danger" id="t-close" title="Close" aria-label="Close and return to the entrance">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- ================= ENTRANCE ================= -->
+  <section class="gate wrap" id="v-gate">
+    <div class="gate-head">
+      <span class="eyebrow">Personal Shopper</span>
+      <h1 class="gate-h">Korean beauty,<br>narrowed to <em>one shelf</em>.</h1>
+      <p class="gate-sub"><span class="num" id="s-n">—</span> products · <span class="num" id="s-b">—</span> brands · <span class="num" id="s-m">—</span> online channels</p>
+    </div>
+    <div class="doors">
+      <button class="door" data-view="shop">
+        <span class="door-ghost" aria-hidden="true">01</span>
+        <span class="door-n">01</span>
+        <span class="door-t">Concierge</span>
+        <span class="door-d">Answer four cards and one product is left standing.</span>
+        <span class="door-m">Four cards → <b>one pick</b></span>
+      </button>
+      <button class="door" data-view="catalog">
+        <span class="door-ghost" aria-hidden="true">02</span>
+        <span class="door-n">02</span>
+        <span class="door-t">Catalog</span>
+        <span class="door-d">The whole shelf, filtered by age, gender, category and preference.</span>
+        <span class="door-m"><b id="d-n">—</b> products</span>
+      </button>
+      <button class="door" data-view="store">
+        <span class="door-ghost" aria-hidden="true">03</span>
+        <span class="door-n">03</span>
+        <span class="door-t">Store</span>
+        <span class="door-d">Who carries what, and who actually sells it cheapest.</span>
+        <span class="door-m"><b id="d-m">—</b> channels compared</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ================= CONCIERGE : four square cards ================= -->
+  <section class="stage wrap hidden" id="v-stage" role="tabpanel" aria-labelledby="tab-shop">
+    <div class="stage-head">
+      <span class="eyebrow">Concierge</span>
+      <p class="stage-sub">Fill all four cards. Tap one to open it.</p>
+    </div>
+    <div class="deck" id="deck"></div>
+    <div class="rail" id="rail"></div>
+    <p class="stage-foot" id="stage-foot"></p>
+  </section>
+
+  <!-- ================= RESULT ================= -->
+  <section class="reveal wrap hidden" id="v-reveal" role="tabpanel" aria-labelledby="tab-shop"></section>
+
+  <!-- ================= CATALOG ================= -->
+  <section class="page wrap hidden" id="v-catalog" role="tabpanel" aria-labelledby="tab-catalog">
+    <span class="eyebrow">Catalog</span>
+    <h1 class="page-h" style="margin-top:16px">The whole <em>shelf</em></h1>
+    <p class="page-d">The concierge narrows things to one. The catalog lays everything out. Combine the four axes however you like, or search a brand by name.</p>
+    <div class="filters">
+      <div class="frow"><span class="flab">Age</span><div class="fchips" id="f-age"></div></div>
+      <div class="frow"><span class="flab">Gender</span><div class="fchips" id="f-gender"></div></div>
+      <div class="frow"><span class="flab">Category</span><div class="fchips" id="f-use"></div></div>
+      <div class="frow"><span class="flab">Preference</span><div class="fchips" id="f-vibe"></div></div>
+      <div class="frow" style="border-top:1px solid var(--edge); padding-top:13px">
+        <input class="fq" id="f-q" type="search" placeholder="Search a brand or product — e.g. Round Lab, serum, cushion">
+        <div class="fchips" id="f-sort"></div>
+        <span class="cnt" id="f-cnt"></span>
+      </div>
+    </div>
+    <div class="warn" style="max-width:none"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 10v4M12 17.2v.1"/></svg><div>${LIVE ? `<b>Ranges collected ${esc(SOURCE.when)} via ${esc(SOURCE.label)}.</b> Stores change prices daily and run their own promotions — treat this as a starting point and open a store for its live price.` : `<b>Sample ranges — this build ships without live pricing.</b> The ordering and bands illustrate the layout; they are not any store's real price. Open a store below to see what it actually charges.`}</div></div>
+    <div class="grid" id="cat-grid"></div>
+  </section>
+
+  <!-- ================= STORE ================= -->
+  <section class="page wrap hidden" id="v-store" role="tabpanel" aria-labelledby="tab-store">
+    <span class="eyebrow">Store</span>
+    <h1 class="page-h" style="margin-top:16px">The same jar, <em>eleven prices</em></h1>
+    <p class="page-d">No single channel is cheapest on everything. These are the eleven Korean beauty retailers behind this catalog — what each one carries, and how often it comes out lowest when the prices are lined up side by side.</p>
+    <div class="stores" id="store-grid"></div>
+
+    <div class="sec"><h3>How the prices get here</h3><span class="line"></span><span class="eyebrow">Pipeline</span></div>
+    <div class="pipe">
+      <div>
+        <p>The collector checks each channel's <span class="num">robots.txt</span> and terms before it starts, and prefers a public API wherever one exists. Two concurrent requests per channel, 1.2 seconds apart. Everything it returns is public listing data — no logins, no member-only pricing.</p>
+        <div class="note">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" style="flex:none;margin-top:3px;color:var(--gold-deep)"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.2v.1"/></svg>
+          <div><b>This is a portfolio snapshot.</b> The products, prices and stores on this page are a demo dataset modelled on real Korean retail listings and price bands — they are not live quotes. Check the store before buying. The working collector ships alongside this page in the <span class="num">scraper/</span> directory.</div>
+        </div>
+      </div>
+      <div>
+        <div class="pstep"><span class="n">01</span><div><h4>Channel adapters</h4><p>One adapter per store. Public product API where there is one, otherwise the category pagination.</p></div></div>
+        <div class="pstep"><span class="n">02</span><div><h4>Normalisation</h4><p>Brand spellings drift across stores, so a dictionary settles them. Volume, SPF and pack count are pulled out of the name into their own fields.</p></div></div>
+        <div class="pstep"><span class="n">03</span><div><h4>Matching</h4><p>Brand plus normalised name plus volume forms the key; leftovers are grouped by string similarity. One product ends up carrying several store prices.</p></div></div>
+        <div class="pstep"><span class="n">04</span><div><h4>Attribute tagging</h4><p>Age, gender, category and concern keywords are lifted out of the description and ingredient list. Those tags feed the concierge.</p></div></div>
+        <div class="pstep"><span class="n">05</span><div><h4>Scoring</h4><p>Age fit 18 points, gender 14, category 22, preference 14, then adjusted by rating, review count and anything over budget.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="foot">
+      <span>Yun Beauty Concierge — a personal shopper across Korean online beauty channels</span>
+      <span class="num" style="margin-left:auto" id="s-d">—</span>
+      <span>Portfolio demo · not live pricing</span>
+    </div>
+  </div>
+</main>
+<div id="modal-root"></div>
+<script>
+/* ============================================================
+   Yun Beauty Concierge — dataset (snapshot)
+   A portfolio demo modelled on real Korean retail listings and
+   price bands. The live collector lives in scraper/ and emits
+   exactly this schema.
+   ============================================================ */
+const SNAPSHOT = '2026.08.20 03:10 KST';
+
+const CONCERN = {
+  hyd:'Hydration', cal:'Soothing', acne:'Blemishes', pore:'Pores & oil', tone:'Tone & spots',
+  wri:'Lines & firmness', uv:'UV', base:'Base', color:'Colour', lip:'Lips',
+  oil:'Cleansing', scalp:'Scalp & hair', body:'Body', scent:'Scent'
+};
+const USE = { skin:'Skincare', sun:'Sun care', make:'Makeup', clean:'Cleansing', hair:'Hair & Body', scent:'Fragrance' };
+const VIBE = { derma:'Clinical', clean:'Clean & vegan', lux:'Luxury', value:'Budget-first', trend:'Trend-led' };
+const AGE = { 10:'Teens', 20:'20s', 30:'30s', 40:'40s', 50:'50s and up' };
+const GENDER = { f:'Women', m:'Men', a:'Unisex' };
+
+const P = [
+/* ---------- Skincare ---------- */
+{i:1,b:'ANUA',n:'Heartleaf 77% Soothing Toner',sp:'250ml',f:'ton',h:148,a:[20,30],g:'a',v:'clean',c:'skin',cn:['cal','hyd'],r:4.8,rv:42130,o:[['Olive Young',19900],['Coupang',17900],['Naver Smart Store',18500]],w:'The baseline for skin that flushes easily. A high share of heartleaf extract, gentle enough to sweep on twice a day.'},
+{i:2,b:'Round Lab',n:'1025 Dokdo Toner',sp:'200ml',f:'ton',h:202,a:[10,20,30],g:'a',v:'value',c:'skin',cn:['hyd','cal'],r:4.7,rv:38210,o:[['Olive Young',18000],['Coupang',15900],['MUSINSA Beauty',16800]],w:'The safest first toner. Almost no fragrance and almost no sting, so teen skin handles it too.'},
+{i:3,b:'TORRIDEN',n:'Dive-In Low Molecular Hyaluronic Acid Serum',sp:'50ml',f:'drop',h:196,a:[20,30],g:'a',v:'value',c:'skin',cn:['hyd'],r:4.8,rv:51002,o:[['Olive Young',17900],['Coupang',14900],['ZIGZAG',16500]],w:'The most dependable hydration for the money. It does not pill, so it works under makeup.'},
+{i:4,b:'goodal',n:'Green Tangerine Vita C Dark Spot Serum',sp:'30ml',f:'drop',h:44,a:[20,30],g:'a',v:'clean',c:'skin',cn:['tone'],r:4.6,rv:29470,o:[['Olive Young',22000],['Kurly Beauty',20900],['Coupang',19800]],w:'A gateway vitamin C. The derivative is mild, so you can start working on tone without the sting.'},
+{i:5,b:'MANYO',n:'Galac Niacin 2.0 Essence',sp:'100ml',f:'pump',h:28,a:[20,30,40],g:'a',v:'clean',c:'skin',cn:['tone','hyd'],r:4.7,rv:33900,o:[['Olive Young',24000],['Coupang',21500],['Naver Smart Store',22900]],w:'Galactomyces with niacinamide. Handles tone and moisture together, right when texture starts to roughen.'},
+{i:6,b:'SKIN1004',n:'Madagascar Centella Ampoule',sp:'100ml',f:'drop',h:144,a:[10,20,30],g:'a',v:'clean',c:'skin',cn:['cal','acne'],r:4.7,rv:41200,o:[['Olive Young',21000],['Coupang',17900],['MUSINSA Beauty',19500]],w:'About as close to single-ingredient centella as it gets. For skin that holds onto blemish marks.'},
+{i:7,b:'Dr.G',n:'Red Blemish Clear Soothing Cream',sp:'70ml',f:'jar',h:132,a:[10,20,30],g:'a',v:'derma',c:'skin',cn:['cal','acne'],r:4.6,rv:62310,o:[['Olive Young',28000],['Coupang',23900],['LOTTE ON',26500]],w:'The default soothing cream for sensitive skin. Light enough that oily skin can wear it through summer.'},
+{i:8,b:'AESTURA',n:'Atobarrier 365 Cream',sp:'80ml',f:'tube',h:210,a:[20,30,40,50],g:'a',v:'derma',c:'skin',cn:['hyd','cal'],r:4.8,rv:27400,o:[['Olive Young',32000],['LOTTE ON',29900],['SSG.COM',30500]],w:'For when the barrier is down and everything stings. The moisturiser dermatologists name most often.'},
+{i:9,b:'numbuzin',n:'No.5 Colour Balancing Serum',sp:'32ml',f:'drop',h:326,a:[20,30],g:'a',v:'trend',c:'skin',cn:['tone'],r:4.5,rv:18900,o:[['Olive Young',19800],['ZIGZAG',17900],['ABLY',18400]],w:'Takes on redness and dullness in the same step. One thin layer before makeup.'},
+{i:10,b:'isoi',n:'Bulgarian Rose Blemish Care Serum',sp:'30ml',f:'drop',h:338,a:[30,40],g:'f',v:'clean',c:'skin',cn:['tone','cal'],r:4.6,rv:12400,o:[['Naver Smart Store',30000],['Kurly Beauty',28900],['LOTTE ON',29500]],w:'No added fragrance or dye, with rose oil doing the work. Dark spot care on a gentle formula.'},
+{i:11,b:'BIOHEAL BOH',n:'Probioderm Lifting Cream',sp:'50ml',f:'jar',h:18,a:[30,40,50],g:'a',v:'derma',c:'skin',cn:['wri'],r:4.6,rv:9800,o:[['Olive Young',60000],['LOTTE ON',54900],['Coupang',52900]],w:'The cream for the moment firmness first crosses your mind. Dense, so keep it for nights.'},
+{i:12,b:'Sulwhasoo',n:'Concentrated Ginseng Renewing Cream',sp:'60ml',f:'jar',h:36,a:[40,50],g:'f',v:'lux',c:'skin',cn:['wri','hyd'],r:4.9,rv:15600,o:[['AMORE Mall',210000],['SSG.COM',199000],['LOTTE ON',203000]],w:'Somewhere between a gift and a reward. The benchmark of the herbal line, and the finish genuinely is different.'},
+{i:13,b:'IOPE',n:'Retinol Expert 0.1%',sp:'20ml',f:'drop',h:24,a:[30,40,50],g:'a',v:'derma',c:'skin',cn:['wri'],r:4.7,rv:21300,o:[['AMORE Mall',40000],['Olive Young',38000],['Coupang',35900]],w:'The most familiar stabilised retinol from a Korean house. Start at twice a week.'},
+{i:14,b:'LANEIGE',n:'Water Bank Blue Hyaluronic Cream',sp:'50ml',f:'jar',h:206,a:[20,30],g:'a',v:'trend',c:'skin',cn:['hyd'],r:4.7,rv:34200,o:[['Olive Young',38000],['AMORE Mall',36000],['Coupang',32900]],w:'The popular answer to a moisture cream. Gel and cream versions let you switch with the season.'},
+{i:15,b:'innisfree',n:'Green Tea Seed Hyaluronic Serum',sp:'80ml',f:'pump',h:140,a:[10,20,30],g:'a',v:'value',c:'skin',cn:['hyd'],r:4.6,rv:45600,o:[['Olive Young',30000],['Coupang',26900],['MUSINSA Beauty',28500]],w:'A big enough bottle to be generous down the neck. A daily serum, not an occasion one.'},
+{i:16,b:'COSRX',n:'Advanced Snail 96 Mucin Power Essence',sp:'100ml',f:'pump',h:172,a:[20,30],g:'a',v:'value',c:'skin',cn:['hyd','cal'],r:4.7,rv:58900,o:[['Coupang',15900],['Olive Young',19000],['Naver Smart Store',17400]],w:'The essence that got famous abroad before it did at home. If you can live with the tack, the recovery is real.'},
+{i:17,b:'MEDIHEAL',n:'Madecassoside Essential Mask',sp:'10 sheets',f:'sach',h:136,a:[10,20,30],g:'a',v:'value',c:'skin',cn:['cal','hyd'],r:4.5,rv:71200,o:[['Olive Young',15000],['Coupang',11900],['ZIGZAG',13500]],w:'The cheapest way to undo a badly spent day. Worth keeping a box in the drawer.'},
+{i:18,b:'belif',n:'The True Cream Aqua Bomb',sp:'50ml',f:'jar',h:188,a:[20,30],g:'a',v:'clean',c:'skin',cn:['hyd'],r:4.6,rv:16800,o:[['Olive Young',42000],['LOTTE ON',39900],['Coupang',38500]],w:'A gel cream that finishes light. For anyone who has been avoiding creams over grease.'},
+{i:19,b:"d'Alba",n:'White Truffle First Spray Serum',sp:'100ml',f:'pump',h:46,a:[30,40],g:'f',v:'lux',c:'skin',cn:['hyd','tone'],r:4.6,rv:24700,o:[['Olive Young',45000],['Kurly Beauty',42900],['Coupang',39900]],w:'It sprays, so you can top up over makeup. The scent is distinct enough to divide people.'},
+{i:20,b:'HANYUL',n:'Red Rice Essential Cream',sp:'50ml',f:'jar',h:12,a:[40,50],g:'f',v:'lux',c:'skin',cn:['wri','tone'],r:4.7,rv:8900,o:[['AMORE Mall',45000],['Olive Young',43000],['SSG.COM',44000]],w:'For anyone who likes a weighty herbal texture. It feeds skin that has gone dry and thin.'},
+{i:21,b:'MISSHA',n:'Time Revolution Night Repair Ampoule',sp:'50ml',f:'drop',h:26,a:[30,40,50],g:'a',v:'value',c:'skin',cn:['wri','hyd'],r:4.7,rv:39800,o:[['Olive Young',42000],['Coupang',33900],['Naver Smart Store',36500]],w:'A long-standing stand-in for pricier ampoules. It discounts often, so the lowest price matters here.'},
+{i:22,b:'primera',n:'Super Sprout Serum',sp:'50ml',f:'drop',h:104,a:[30,40],g:'f',v:'clean',c:'skin',cn:['wri','hyd'],r:4.6,rv:7600,o:[['AMORE Mall',60000],['LOTTE ON',56900],['SSG.COM',58000]],w:'Plant-derived anti-ageing. For skin that reacts easily but still wants firmness back.'},
+{i:23,b:'Eucerin',n:'Hyaluron-Filler Day Cream',sp:'50ml',f:'jar',h:216,a:[40,50],g:'a',v:'derma',c:'skin',cn:['wri','hyd'],r:4.6,rv:11200,o:[['LOTTE ON',40000],['Coupang',34900],['SSG.COM',37500]],w:'A pharmacy-shelf wrinkle cream. Unscented, so it sits fine on skin that hates fragrance.'},
+{i:24,b:'BRING GREEN',n:'Tea Tree Cica Toner Pad',sp:'90 pads',f:'pad',h:126,a:[10,20],g:'a',v:'value',c:'skin',cn:['acne','pore'],r:4.5,rv:22400,o:[['Olive Young',18000],['Coupang',15900],['MUSINSA Beauty',16900]],w:'Two uses in one tub: wipe it on, or lay it on. Built for summer skin that turns oily fast.'},
+{i:25,b:'Rejuran',n:'Healing Cream',sp:'50ml',f:'jar',h:346,a:[30,40,50],g:'f',v:'derma',c:'skin',cn:['wri','cal'],r:4.7,rv:5400,o:[['Naver Smart Store',55000],['LOTTE ON',52900],['SSG.COM',53900]],w:'The line clinics send home after a treatment. For wanting repair and calm at the same time.'},
+{i:26,b:'TORRIDEN',n:'Dive-In Moisture Cream',sp:'70ml',f:'jar',h:196,a:[20,30],g:'a',v:'value',c:'skin',cn:['hyd'],r:4.7,rv:19800,o:[['Olive Young',22000],['Coupang',18900],['ZIGZAG',20500]],w:'A light cream that pairs cleanly with the serum from the same line.'},
+{i:27,b:'OHON',n:'Homme All-in-One Essence',sp:'150ml',f:'pump',h:222,a:[20,30,40],g:'m',v:'value',c:'skin',cn:['hyd'],r:4.4,rv:6100,o:[['Coupang',24000],['Naver Smart Store',22900],['MUSINSA Beauty',23500]],w:'One step, for people who abandon anything with more. It does not sting straight after a shave.'},
+{i:28,b:'LANEIGE',n:'Lip Sleeping Mask',sp:'20g',f:'jar',h:334,a:[10,20,30],g:'a',v:'trend',c:'skin',cn:['lip','hyd'],r:4.8,rv:66200,o:[['Olive Young',22000],['Coupang',17900],['MUSINSA Beauty',19900]],w:'The safest single item to give away or to keep. Layer it thick before bed and forget it.'},
+/* ---------- Sun care ---------- */
+{i:29,b:'Beauty of Joseon',n:'Relief Sun Rice + Probiotics SPF50+',sp:'50ml',f:'tube',h:42,a:[10,20,30],g:'a',v:'clean',c:'sun',cn:['uv'],r:4.8,rv:34800,o:[['Olive Young',16000],['Coupang',13900],['Naver Smart Store',14900]],w:'Barely any white cast or tack, which is why people actually wear it daily. More of it sells abroad than at home.'},
+{i:30,b:'Cell Fusion C',n:'Laser Sunscreen 100 SPF50+',sp:'50ml',f:'tube',h:212,a:[20,30,40],g:'a',v:'derma',c:'sun',cn:['uv'],r:4.7,rv:28900,o:[['Naver Smart Store',27000],['Coupang',23900],['LOTTE ON',25500]],w:'A mineral filter used right after procedures. Some white cast, but the protection is not in question.'},
+{i:31,b:'Dr.G',n:'Green Mild Up Sun+',sp:'50ml',f:'tube',h:130,a:[10,20,30],g:'a',v:'derma',c:'sun',cn:['uv','cal'],r:4.6,rv:47200,o:[['Olive Young',22000],['Coupang',18900],['LOTTE ON',20500]],w:'Tone-up and soothing inside one sunscreen. It stands in as base on a no-makeup day.'},
+{i:32,b:'innisfree',n:'Daily UV Defense Sun Serum',sp:'50ml',f:'tube',h:156,a:[20,30],g:'a',v:'value',c:'sun',cn:['uv','hyd'],r:4.7,rv:31200,o:[['Olive Young',18000],['AMORE Mall',17500],['Coupang',15900]],w:'It goes on like a serum. For skin that cannot tolerate the usual sunscreen weight.'},
+{i:33,b:'Round Lab',n:'Birch Juice Moisturizing Sunscreen',sp:'50ml',f:'tube',h:200,a:[10,20,30],g:'a',v:'value',c:'sun',cn:['uv','hyd'],r:4.7,rv:40100,o:[['Olive Young',18000],['Coupang',15400],['MUSINSA Beauty',16800]],w:'What dry skin reaches for in summer without ending up tight by noon.'},
+{i:34,b:'TOUN28',n:'Protect Sun Stick',sp:'18g',f:'stick',h:94,a:[20,30,40],g:'a',v:'clean',c:'sun',cn:['uv'],r:4.4,rv:5200,o:[['Naver Smart Store',24000],['Kurly Beauty',23000],['29CM',24000]],w:'For reapplying without getting it on your hands. Paper packaging, easy to keep in a bag.'},
+{i:35,b:'IOPE',n:'UV Shield Homme Sun Protector',sp:'60ml',f:'tube',h:232,a:[30,40,50],g:'m',v:'derma',c:'sun',cn:['uv'],r:4.5,rv:4300,o:[['AMORE Mall',32000],['Coupang',27900],['LOTTE ON',30000]],w:'A men’s texture built to keep shine down. Designed around days spent outdoors.'},
+/* ---------- Makeup ---------- */
+{i:36,b:'CLIO',n:'Kill Cover Mesh Glow Cushion',sp:'15g x2',f:'cush',h:24,a:[20,30],g:'f',v:'trend',c:'make',cn:['base'],r:4.7,rv:39400,o:[['Olive Young',32000],['Coupang',26900],['ZIGZAG',29500]],w:'A cushion that balances coverage against glow. A refill is in the box, so the real price is lower than it looks.'},
+{i:37,b:'rom&nd',n:'Juicy Lasting Tint',sp:'5.5g',f:'tint',h:352,a:[10,20],g:'f',v:'trend',c:'make',cn:['color','lip'],r:4.8,rv:88300,o:[['Olive Young',9000],['Coupang',7900],['ABLY',8500]],w:'The benchmark for tint sales in Korea. The shade range is wide enough to make it an easy first lip.'},
+{i:38,b:'peripera',n:'Ink Mood Glowy Tint',sp:'4g',f:'tint',h:358,a:[10,20],g:'f',v:'value',c:'make',cn:['color','lip'],r:4.7,rv:62100,o:[['Olive Young',9900],['Coupang',7900],['ZIGZAG',8900]],w:'The safest glossy tint you can get under ten thousand won.'},
+{i:39,b:'dasique',n:'Shadow Palette',sp:'9g',f:'pal',h:20,a:[20,30],g:'f',v:'trend',c:'make',cn:['color'],r:4.8,rv:24600,o:[['Olive Young',34000],['MUSINSA Beauty',32000],['29CM',33000]],w:'One palette carries you from daytime to dinner. The payoff is restrained, so it rarely goes wrong.'},
+{i:40,b:'AMUSE',n:'Dew Tint',sp:'4.5g',f:'tint',h:342,a:[10,20],g:'f',v:'clean',c:'make',cn:['color','lip'],r:4.6,rv:18200,o:[['Olive Young',15000],['MUSINSA Beauty',13900],['ABLY',14500]],w:'A vegan-certified lip. Less irritating if your lips chap at the first sign of dry air.'},
+{i:41,b:'hince',n:'Second Skin Mesh Matte Cushion',sp:'21g',f:'cush',h:30,a:[20,30],g:'f',v:'trend',c:'make',cn:['base'],r:4.6,rv:14300,o:[['29CM',38000],['MUSINSA Beauty',36000],['Olive Young',38000]],w:'A matte cushion that smooths without shine. For the days pores are what bothers you.'},
+{i:42,b:'JUNGSAEMMOOL',n:'Essential Star-Cell Radiance Cushion',sp:'14g',f:'cush',h:34,a:[30,40],g:'f',v:'lux',c:'make',cn:['base'],r:4.7,rv:21800,o:[['Olive Young',42000],['LOTTE ON',39900],['SSG.COM',40500]],w:'Weighted toward making skin look good rather than covering it. Especially kind to dry skin.'},
+{i:43,b:'HERA',n:'Black Cushion SPF34',sp:'15g x2',f:'cush',h:302,a:[30,40,50],g:'f',v:'lux',c:'make',cn:['base','uv'],r:4.7,rv:26900,o:[['AMORE Mall',45000],['SSG.COM',43000],['LOTTE ON',43900]],w:'For occasions that need coverage and staying power. People tend to keep this one for years.'},
+{i:44,b:'WAKEMAKE',n:'Soft Blurring Powder',sp:'8g',f:'pal',h:40,a:[20,30],g:'f',v:'trend',c:'make',cn:['base','pore'],r:4.6,rv:20400,o:[['Olive Young',22000],['ZIGZAG',19900],['Coupang',18900]],w:'Low fallout, and it blurs texture rather than sitting on it. A bag powder for the afternoon.'},
+{i:45,b:'lilybyred',n:'Mood Liar Velvet Tint',sp:'4.5g',f:'tint',h:348,a:[10,20],g:'f',v:'value',c:'make',cn:['color','lip'],r:4.6,rv:31900,o:[['Olive Young',11000],['Coupang',8900],['ABLY',9900]],w:'A velvet finish that holds its colour and transfers less onto a mask.'},
+{i:46,b:'ETUDE',n:'Drawing Eye Brow',sp:'0.25g',f:'stick',h:28,a:[10,20],g:'a',v:'value',c:'make',cn:['color'],r:4.7,rv:94200,o:[['Olive Young',4000],['Coupang',3200],['ZIGZAG',3800]],w:'A brow pencil that has been selling for decades. About the least intimidating first makeup purchase there is.'},
+{i:47,b:"A'PIEU",n:'Madecassoside Soothing Powder',sp:'5g',f:'pal',h:132,a:[10,20],g:'a',v:'value',c:'make',cn:['pore','cal'],r:4.5,rv:15600,o:[['Olive Young',8000],['Coupang',6900],['MUSINSA Beauty',7500]],w:'Controls oil while carrying a soothing ingredient. Less drying than most powders over a breakout.'},
+{i:48,b:'LAKA',n:'Fruity Glam Balm',sp:'3.4g',f:'tint',h:14,a:[20,30],g:'a',v:'clean',c:'make',cn:['lip','color'],r:4.6,rv:9100,o:[['MUSINSA Beauty',20000],['29CM',20000],['Olive Young',20000]],w:'A lip balm from a house that never split its line by gender. The colour is faint enough that nobody can tell.'},
+{i:49,b:'Black Monster',n:'Homme Tone-Up CC Cream',sp:'50ml',f:'tube',h:26,a:[20,30,40],g:'m',v:'value',c:'make',cn:['base'],r:4.3,rv:12700,o:[['Coupang',18000],['MUSINSA Beauty',17500],['Naver Smart Store',18500]],w:'Evens out a complexion without reading as makeup. The usual first base product for men.'},
+{i:50,b:'too cool for school',n:'Artclass By Rodin Shading',sp:'9.5g',f:'pal',h:26,a:[20,30],g:'f',v:'trend',c:'make',cn:['base'],r:4.7,rv:42300,o:[['Olive Young',22000],['Coupang',17900],['ZIGZAG',19900]],w:'Three tones in one pan. Even a beginner will not end up muddy with it.'},
+/* ---------- Cleansing ---------- */
+{i:51,b:'Beplain',n:'Mung Bean pH-Balanced Cleansing Foam',sp:'80ml',f:'tube',h:88,a:[10,20,30],g:'a',v:'clean',c:'clean',cn:['oil','acne'],r:4.7,rv:37600,o:[['Olive Young',13900],['Coupang',11900],['MUSINSA Beauty',12900]],w:'A low-pH foam that leaves almost no tightness behind. The default wash for breakout-prone skin.'},
+{i:52,b:'MANYO',n:'Pure Cleansing Oil',sp:'200ml',f:'pump',h:44,a:[20,30,40],g:'a',v:'clean',c:'clean',cn:['oil','pore'],r:4.8,rv:52800,o:[['Olive Young',19000],['Coupang',16900],['Kurly Beauty',18000]],w:'Melts sunscreen and cushion in a single pass. The longest-selling product in the category.'},
+{i:53,b:'Cell Fusion C',n:'Low pH pHarrier Cleansing Gel',sp:'200ml',f:'pump',h:204,a:[20,30],g:'a',v:'derma',c:'clean',cn:['oil','cal'],r:4.6,rv:9400,o:[['Naver Smart Store',25000],['LOTTE ON',23900],['Coupang',22500]],w:'Less cleansing power on purpose, and less irritation with it. Best kept as the morning wash.'},
+{i:54,b:"A'PIEU",n:'Micro Micellar Cleansing Water',sp:'500ml',f:'bot',h:194,a:[10,20],g:'a',v:'value',c:'clean',cn:['oil'],r:4.5,rv:26800,o:[['Olive Young',12000],['Coupang',9900],['ZIGZAG',10900]],w:'Enough volume and low enough price for light makeup. Keep it next to the cotton pads.'},
+{i:55,b:'Round Lab',n:'Mild Cleansing Balm',sp:'100ml',f:'jar',h:206,a:[20,30],g:'a',v:'value',c:'clean',cn:['oil'],r:4.6,rv:14200,o:[['Olive Young',22000],['Coupang',18900],['MUSINSA Beauty',20500]],w:'A balm for anyone who cannot stand oil running down their wrists.'},
+/* ---------- Hair & Body ---------- */
+{i:56,b:'Ryo',n:'Jayangyunmo Hair Loss Care Shampoo',sp:'550ml',f:'bot',h:22,a:[40,50],g:'a',v:'value',c:'hair',cn:['scalp'],r:4.5,rv:33200,o:[['Coupang',12000],['SSG.COM',13000],['LOTTE ON',13500]],w:'A herbal shampoo for when hair starts going fine. The lowest price per large bottle on this list.'},
+{i:57,b:'Mise en Scène',n:'Perfect Serum Original',sp:'80ml',f:'pump',h:38,a:[10,20,30],g:'f',v:'value',c:'hair',cn:['scalp'],r:4.6,rv:58100,o:[['Olive Young',12000],['Coupang',9900],['Naver Smart Store',10900]],w:'Two pumps into wet hair. The most familiar way in Korea to tidy up damaged ends.'},
+{i:58,b:'Dr.FORHAIR',n:'Folligen Shampoo',sp:'400ml',f:'bot',h:208,a:[30,40,50],g:'m',v:'derma',c:'hair',cn:['scalp'],r:4.5,rv:18700,o:[['Coupang',26000],['Naver Smart Store',24900],['Olive Young',28000]],w:'For getting serious about the scalp. Not heavily scented, so washing daily is no problem.'},
+{i:59,b:'LABO-H',n:'Scalp Strengthening Shampoo',sp:'400ml',f:'bot',h:190,a:[30,40,50],g:'a',v:'derma',c:'hair',cn:['scalp'],r:4.6,rv:24100,o:[['Olive Young',20000],['AMORE Mall',19500],['Coupang',17900]],w:'Carries a hair-loss relief claim. Built to be used for a long stretch without irritation.'},
+{i:60,b:'illiyoon',n:'Ceramide Ato Concentrate Cream',sp:'528ml',f:'bot',h:32,a:[10,20,30,40,50],g:'a',v:'derma',c:'hair',cn:['body','hyd'],r:4.8,rv:84300,o:[['Olive Young',20000],['Coupang',16900],['LOTTE ON',18500]],w:'The household default for body lotion, and the standing answer to winter flaking.'},
+{i:61,b:'Happy Bath',n:'Original Body Wash',sp:'900ml',f:'bot',h:200,a:[10,20,30],g:'a',v:'value',c:'hair',cn:['body'],r:4.4,rv:41200,o:[['Coupang',8000],['SSG.COM',9000],['LOTTE ON',9500]],w:'Wins on price and volume rather than novelty. Several scents, so pick whichever you like.'},
+{i:62,b:'Graffen',n:'Deep Cleansing Shampoo',sp:'500ml',f:'bot',h:352,a:[20,30,40],g:'m',v:'trend',c:'hair',cn:['scalp'],r:4.4,rv:8800,o:[['MUSINSA Beauty',24000],['Coupang',21900],['29CM',24000]],w:'A men’s shampoo that strips wax and sebum in one wash. The scent tends to linger.'},
+/* ---------- Fragrance & Hand ---------- */
+{i:63,b:'TAMBURINS',n:'Perfume Hand Balm',sp:'30ml',f:'tube',h:18,a:[20,30],g:'a',v:'lux',c:'scent',cn:['scent','body'],r:4.7,rv:19400,o:[['29CM',25000],['MUSINSA Beauty',25000],['Kurly Beauty',24000]],w:'The most-gifted hand product in the country. The case alone is reason enough for most buyers.'},
+{i:64,b:'NONFICTION',n:'Gentle Night Hand Cream',sp:'50ml',f:'tube',h:268,a:[20,30,40],g:'a',v:'lux',c:'scent',cn:['scent','body'],r:4.7,rv:12600,o:[['29CM',28000],['MUSINSA Beauty',28000],['Kurly Beauty',26900]],w:'A scent to keep on a desk. It dries without tack and the trail holds for a couple of hours.'},
+{i:65,b:'FORMENT',n:'Cotton Hug Eau de Parfum',sp:'50ml',f:'perf',h:212,a:[20,30],g:'a',v:'trend',c:'scent',cn:['scent'],r:4.6,rv:22800,o:[['Olive Young',45000],['MUSINSA Beauty',41900],['Coupang',39900]],w:'The safest musk for a first perfume. Nobody in an office will mind it.'},
+{i:66,b:'GRANHAND',n:'Eau de Parfum Nelly',sp:'30ml',f:'perf',h:40,a:[20,30,40],g:'a',v:'lux',c:'scent',cn:['scent'],r:4.6,rv:5900,o:[['29CM',78000],['MUSINSA Beauty',78000],['Naver Smart Store',76000]],w:'Entry-level niche pricing, for when you want something nobody around you is wearing.'},
+{i:67,b:'NONFICTION',n:'Santal Cream Eau de Parfum',sp:'50ml',f:'perf',h:32,a:[30,40],g:'a',v:'lux',c:'scent',cn:['scent'],r:4.8,rv:6400,o:[['29CM',145000],['MUSINSA Beauty',145000],['SSG.COM',142000]],w:'The scent that defines the house. Expensive, and genuinely hard to replace in woody.'},
+{i:68,b:'AROMATICA',n:'Rosemary Scalp Scaling Shampoo',sp:'400ml',f:'bot',h:120,a:[20,30,40],g:'a',v:'clean',c:'hair',cn:['scalp'],r:4.5,rv:16900,o:[['Olive Young',22000],['Kurly Beauty',20900],['Coupang',19900]],w:'A vegan-certified scalp wash. It cools down a scalp that turns oily by mid-afternoon.'}
+];
+
+const MALL_META = ['Olive Young','MUSINSA Beauty','Kurly Beauty','Coupang','Naver Smart Store','LOTTE ON','SSG.COM','ZIGZAG','ABLY','AMORE Mall','29CM'];
+</script>
+<script>
+/* ============================================================
+   Yun Beauty Concierge — application
+   ============================================================ */
+const $ = (s, r) => (r || document).querySelector(s);
+const won = n => '₩' + n.toLocaleString('en-US');
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const offers = p => p.o.slice().sort((a, b) => a[1] - b[1]);
+const low = p => offers(p)[0];
+const CALM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* Where the numbers came from. The collector stamps this; the bundled file is 'sample'. */
+const SOURCE = (typeof DATA_SOURCE !== 'undefined') ? DATA_SOURCE
+  : { mode: 'sample', label: 'Sample data', when: SNAPSHOT };
+const LIVE = SOURCE.mode === 'live';
+
+/* A band, not a quote. Rounded to ₩500 so it reads as approximate on purpose. */
+const round5 = n => Math.round(n / 500) * 500;
+function band(p) {
+  const all = offers(p), lo = round5(all[0][1]), hi = round5(all[all.length - 1][1]);
+  return { lo, hi, one: lo === hi, mid: Math.round((all[0][1] + all[all.length - 1][1]) / 2) };
+}
+const bandText = p => { const b = band(p); return b.one ? won(b.lo) : `${won(b.lo)}–${won(b.hi).slice(1)}`; };
+
+/* Relative position, never a per-store quote. */
+function ladder(p) {
+  const all = offers(p), min = all[0][1];
+  return all.map(([ch, price], i) => ({
+    ch, i, first: i === 0,
+    over: Math.round((price / min - 1) * 100)
+  }));
+}
+
+function vt(fn) {
+  if (document.startViewTransition && !CALM) { try { document.startViewTransition(fn); return; } catch (e) { } }
+  fn();
+}
+
+/* ---------- product rendering (a vessel under the light) ---------- */
+let uid = 0;
+function pack(p) {
+  const id = 'k' + (uid++), h = p.h;
+  const A = `hsl(${h} 50% 82%)`, B = `hsl(${h} 44% 63%)`, C = `hsl(${h} 40% 43%)`;
+  const D = `hsl(${h} 18% 26%)`, E = `hsl(${h} 15% 44%)`;
+  const lab = (x, y, w, ht) => `
+    <rect x="${x}" y="${y}" width="${w}" height="${ht}" rx="2.5" fill="#F7F4EE" opacity=".95"/>
+    <text x="${x + w / 2}" y="${y + ht / 2 - 2}" text-anchor="middle" font-size="7.6" font-weight="600" fill="#221E1A" letter-spacing=".2">${esc(p.b)}</text>
+    <line x1="${x + w * .3}" y1="${y + ht / 2 + 3}" x2="${x + w * .7}" y2="${y + ht / 2 + 3}" stroke="#BFB6A8" stroke-width=".8"/>
+    <text x="${x + w / 2}" y="${y + ht / 2 + 14}" text-anchor="middle" font-size="6.4" fill="#8A8177" font-family="ui-monospace, monospace" letter-spacing=".5">${esc(p.sp)}</text>`;
+  const gloss = (x, y, w, ht, r) => `<rect x="${x}" y="${y}" width="${w}" height="${ht}" rx="${r || 4}" fill="#fff" opacity=".3"/>`;
+
+  let body = '';
+  switch (p.f) {
+    case 'ton':
+      body = `<rect x="58" y="30" width="44" height="24" rx="5" fill="url(#c${id})"/>
+        <rect x="66" y="50" width="28" height="10" fill="${C}"/>
+        <rect x="44" y="56" width="72" height="134" rx="11" fill="url(#b${id})"/>
+        ${gloss(55, 70, 9, 104, 4.5)}${lab(50, 108, 60, 46)}`; break;
+    case 'drop':
+      body = `<rect x="70" y="24" width="20" height="24" rx="9" fill="${D}"/>
+        <rect x="63" y="44" width="34" height="28" rx="5" fill="url(#c${id})"/>
+        <rect x="69" y="70" width="22" height="8" fill="${C}"/>
+        <rect x="48" y="76" width="64" height="114" rx="10" fill="url(#b${id})"/>
+        ${gloss(57, 88, 8, 88, 4)}${lab(52, 114, 56, 46)}`; break;
+    case 'pump':
+      body = `<rect x="86" y="22" width="24" height="7" rx="3.5" fill="${D}"/>
+        <rect x="74" y="22" width="13" height="28" rx="3" fill="${E}"/>
+        <rect x="62" y="46" width="36" height="16" rx="4" fill="url(#c${id})"/>
+        <rect x="42" y="58" width="76" height="132" rx="13" fill="url(#b${id})"/>
+        ${gloss(53, 74, 9, 92, 4.5)}${lab(50, 106, 60, 50)}`; break;
+    case 'tube':
+      body = `<rect x="60" y="26" width="40" height="24" rx="6" fill="url(#c${id})"/>
+        <path d="M48 64 C48 55 60 50 80 50 C100 50 112 55 112 64 L112 180 L48 180 Z" fill="url(#b${id})"/>
+        <rect x="45" y="176" width="70" height="11" rx="3" fill="${C}"/>
+        <line x1="60" y1="177" x2="60" y2="186" stroke="${D}" stroke-width="1" opacity=".6"/>
+        <line x1="80" y1="177" x2="80" y2="186" stroke="${D}" stroke-width="1" opacity=".6"/>
+        <line x1="100" y1="177" x2="100" y2="186" stroke="${D}" stroke-width="1" opacity=".6"/>
+        ${gloss(56, 74, 8, 84, 4)}${lab(52, 96, 56, 52)}`; break;
+    case 'jar':
+      body = `<rect x="32" y="62" width="96" height="28" rx="9" fill="url(#c${id})"/>
+        <rect x="36" y="86" width="88" height="80" rx="11" fill="url(#b${id})"/>
+        ${gloss(46, 98, 9, 54, 4.5)}${lab(44, 104, 72, 46)}`; break;
+    case 'cush':
+      body = `<circle cx="80" cy="122" r="54" fill="url(#b${id})"/>
+        <circle cx="80" cy="122" r="45" fill="none" stroke="#fff" stroke-width="1.4" opacity=".32"/>
+        <path d="M38 96 A54 54 0 0 1 96 70" fill="none" stroke="#fff" stroke-width="4" opacity=".38" stroke-linecap="round"/>
+        <rect x="118" y="110" width="13" height="26" rx="4" fill="${D}"/>
+        ${lab(48, 108, 64, 30)}`; break;
+    case 'tint':
+      body = `<rect x="63" y="34" width="34" height="62" rx="5" fill="url(#c${id})"/>
+        <rect x="61" y="94" width="38" height="94" rx="5" fill="url(#b${id})"/>
+        <rect x="61" y="94" width="38" height="6" fill="${C}"/>
+        ${gloss(67, 46, 6, 40, 3)}${lab(62, 122, 36, 46)}`; break;
+    case 'pal':
+      body = `<rect x="22" y="68" width="116" height="90" rx="10" fill="url(#c${id})"/>
+        <rect x="30" y="92" width="100" height="58" rx="5" fill="#fff" opacity=".16"/>
+        <rect x="34" y="98" width="21" height="46" rx="3" fill="url(#b${id})"/>
+        <rect x="58" y="98" width="21" height="46" rx="3" fill="${A}"/>
+        <rect x="82" y="98" width="21" height="46" rx="3" fill="${C}"/>
+        <rect x="106" y="98" width="21" height="46" rx="3" fill="${B}"/>
+        ${lab(30, 73, 100, 16)}`; break;
+    case 'sach':
+      body = `<path d="M34 52 l8 -6 l8 6 l8 -6 l8 6 l8 -6 l8 6 l8 -6 l8 6 l8 -6 l8 6 l8 -6 l8 6 v128 h-92 z" fill="url(#b${id})"/>
+        ${gloss(44, 70, 8, 92, 4)}${lab(44, 92, 72, 54)}`; break;
+    case 'bot':
+      body = `<rect x="58" y="24" width="44" height="22" rx="6" fill="url(#c${id})"/>
+        <rect x="38" y="44" width="84" height="150" rx="16" fill="url(#b${id})"/>
+        ${gloss(50, 62, 10, 106, 5)}${lab(44, 96, 72, 60)}`; break;
+    case 'perf':
+      body = `<rect x="64" y="22" width="32" height="30" rx="3" fill="url(#c${id})"/>
+        <rect x="70" y="50" width="20" height="12" fill="${C}"/>
+        <rect x="40" y="60" width="80" height="126" rx="7" fill="url(#b${id})"/>
+        ${gloss(50, 74, 9, 96, 4.5)}${lab(48, 104, 64, 50)}`; break;
+    case 'stick':
+      body = `<rect x="56" y="30" width="48" height="50" rx="9" fill="url(#c${id})"/>
+        <rect x="56" y="78" width="48" height="112" rx="9" fill="url(#b${id})"/>
+        ${gloss(64, 92, 7, 76, 3.5)}${lab(56, 110, 48, 46)}`; break;
+    case 'pad':
+      body = `<rect x="34" y="52" width="92" height="26" rx="9" fill="url(#c${id})"/>
+        <rect x="38" y="74" width="84" height="116" rx="12" fill="url(#b${id})"/>
+        ${gloss(49, 90, 9, 76, 4.5)}${lab(46, 106, 68, 52)}`; break;
+    default:
+      body = `<rect x="46" y="50" width="68" height="140" rx="10" fill="url(#b${id})"/>${lab(50, 106, 60, 46)}`;
+  }
+  return `<svg viewBox="0 0 160 220" role="img" aria-label="${esc(p.b + ' ' + p.n)} product image">
+    <defs>
+      <linearGradient id="b${id}" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="${C}"/><stop offset=".2" stop-color="${A}"/>
+        <stop offset=".58" stop-color="${B}"/><stop offset="1" stop-color="${C}"/>
+      </linearGradient>
+      <linearGradient id="c${id}" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="${D}"/><stop offset=".24" stop-color="${E}"/><stop offset="1" stop-color="${D}"/>
+      </linearGradient>
+      <filter id="f${id}" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="11"/></filter>
+    </defs>
+    <ellipse class="halo" cx="80" cy="128" rx="44" ry="46" fill="hsl(${h} 66% 60%)" filter="url(#f${id})"/>
+    <ellipse class="pshadow" cx="80" cy="197" rx="46" ry="6" fill="#000" filter="url(#f${id})"/>
+    ${body}
+  </svg>`;
+}
+
+/* ---------- the general verdict ----------
+   Reviews are read, counted and translated — never reproduced. What ships is
+   the share of reviews that raise each theme, plus a link back to the source
+   listing so anyone can read the originals where they were written.
+------------------------------------------------------------------ */
+const VD_C = {
+  hyd:  [{ en: 'Hydration that lasts', ko: '수분 지속' }, { en: 'Heavy once summer hits', ko: '여름엔 무거움' }],
+  cal:  [{ en: 'Calms redness fast', ko: '붉은기 진정' }, { en: 'Not enough moisture alone', ko: '단독 보습 부족' }],
+  acne: [{ en: 'Spots settle sooner', ko: '트러블 진정' }, { en: 'Slow to show results', ko: '효과가 더딤' }],
+  pore: [{ en: 'Less afternoon shine', ko: '유분 억제' }, { en: 'Pores themselves unchanged', ko: '모공 변화 없음' }],
+  tone: [{ en: 'Brighter, evener tone', ko: '톤 개선' }, { en: 'Little change on dark spots', ko: '잡티엔 미미' }],
+  wri:  [{ en: 'Firmer to the touch', ko: '탄력 개선' }, { en: 'Slow for what it costs', ko: '가격 대비 더딤' }],
+  uv:   [{ en: 'No white cast', ko: '백탁 없음' }, { en: 'Stings the eyes when sweating', ko: '땀에 눈 시림' }],
+  base: [{ en: 'Covers even applied thin', ko: '얇은 커버' }, { en: 'Wear time is half a day', ko: '지속력 부족' }],
+  color:[{ en: 'Payoff matches the swatch', ko: '발색 정확' }, { en: 'Fades quickly', ko: '금방 지워짐' }],
+  lip:  [{ en: 'No flaking overnight', ko: '각질 없음' }, { en: 'Scent reads artificial', ko: '인공적인 향' }],
+  oil:  [{ en: 'Takes off sunscreen', ko: '선크림 제거' }, { en: 'Leaves a film', ko: '잔여감' }],
+  scalp:[{ en: 'Itching drops off', ko: '가려움 감소' }, { en: 'Hair feels stiff after', ko: '뻣뻣해짐' }],
+  body: [{ en: 'No winter flaking', ko: '겨울 각질 없음' }, { en: 'Pump strands the last of it', ko: '펌프 잔량' }],
+  scent:[{ en: 'Soft, long dry-down', ko: '은은한 잔향' }, { en: 'Wear time under three hours', ko: '지속력 짧음' }]
+};
+const VD_F = {
+  ton:  [{ en: 'Works swiped or patted', ko: '닦토·팩 겸용' }, { en: 'Awkward cap', ko: '뚜껑 불편' }],
+  drop: [{ en: 'Dropper doses precisely', ko: '양 조절 쉬움' }, { en: 'Air gets in the dropper', ko: '스포이드 공기' }],
+  pump: [{ en: 'Pump doses evenly', ko: '정량 토출' }, { en: 'Pump is stiff', ko: '펌프 뻑뻑' }],
+  tube: [{ en: 'Travels well', ko: '휴대 편의' }, { en: 'Hard to empty', ko: '끝까지 못 씀' }],
+  jar:  [{ en: 'Melts in smoothly', ko: '부드러운 발림' }, { en: 'Jar is heavy', ko: '무거운 용기' }],
+  cush: [{ en: 'Puff sits close', ko: '퍼프 만족' }, { en: 'Refill swap is fiddly', ko: '리필 번거로움' }],
+  tint: [{ en: 'Barely transfers', ko: '묻어남 적음' }, { en: 'Drying on the lips', ko: '건조함' }],
+  pal:  [{ en: 'Shades are foolproof', ko: '무난한 색조합' }, { en: 'Some fallout', ko: '가루 날림' }],
+  sach: [{ en: 'Thin sheet, clings well', ko: '얇은 시트' }, { en: 'Essence left in the pouch', ko: '에센스 잔량' }],
+  bot:  [{ en: 'Big bottle lasts', ko: '대용량' }, { en: 'Pump is loose', ko: '헐거운 펌프' }],
+  perf: [{ en: 'Bought after one sniff', ko: '시향 후 구매' }, { en: 'Pricey for the size', ko: '용량 대비 비쌈' }],
+  stick:[{ en: 'Reapplies without mess', ko: '덧바르기 편함' }, { en: 'Drags on the skin', ko: '뻑뻑한 발림' }],
+  pad:  [{ en: 'Pads are thick', ko: '도톰한 패드' }, { en: 'Lid does not seal', ko: '뚜껑 헐거움' }]
+};
+const VD_P = [
+  [{ en: 'Hard to beat at the price', ko: '가성비' }, { en: 'Scent gives away the price', ko: '향 아쉬움' }],
+  [{ en: 'Repurchased more than once', ko: '재구매 많음' }, { en: 'Only worth it on sale', ko: '세일 때만' }],
+  [{ en: 'Finish justifies the price', ko: '마무리감' }, { en: 'Too dear to restock often', ko: '가격 부담' }]
+];
+const VD_G = [{ en: 'Gentle on sensitive skin', ko: '민감성에도 순함' }, { en: 'Damaged packaging on arrival', ko: '배송 중 파손' }];
+
+function verdict(p) {
+  if (p.rvi && (p.rvi.pos || []).length) return { ...p.rvi, live: true };
+  const band = low(p)[1] < 20000 ? 0 : low(p)[1] < 60000 ? 1 : 2;
+  const pos = [], neg = [];
+  p.cn.forEach(c => { const t = VD_C[c]; if (t) { pos.push(t[0]); neg.push(t[1]); } });
+  const f = VD_F[p.f]; if (f) { pos.push(f[0]); neg.push(f[1]); }
+  pos.push(VD_P[band][0]); neg.push(VD_P[band][1]);
+  pos.push(VD_G[0]); neg.push(VD_G[1]);
+
+  const drift = p.i % 7;
+  const rate = (list, top, step) => list.map((t, i) => ({
+    ...t, pct: Math.max(6, Math.min(78, top - i * step + ((p.i * (i + 3)) % 9) - 4))
+  })).sort((a, b) => b.pct - a.pct);
+
+  const share = Math.max(58, Math.min(96, Math.round((p.r - 3.2) / 1.8 * 40 + 56 + drift - 3)));
+  return {
+    share,
+    pos: rate(pos, 68, 12).slice(0, 4),
+    neg: rate(neg, 26, 6).slice(0, 3)
+  };
+}
+
+function verdictBlock(p) {
+  const v = verdict(p);
+  const row = (t, cls) => `<div class="vd-row">
+    <span class="vd-k">${esc(t.en)}<i lang="ko">${esc(t.ko)}</i></span>
+    <span class="vd-track ${cls}"><i style="width:${t.pct}%"></i></span>
+    <span class="vd-p">${t.pct}%</span>
+  </div>`;
+  const top = v.pos[0], gripe = v.neg[0];
+  return `<div class="sec"><h3>The general verdict</h3><span class="line"></span><span class="eyebrow">${won(p.rv).slice(1)} reviews</span></div>
+    <p class="rv-note">${v.live
+      ? 'Themes counted across Korean review text and translated — the share of reviews that raise each point. No review is reproduced here; use the channel links above to read them where they were written.'
+      : 'Demo figures. In the live pipeline these are theme counts over Korean review text — shares of reviews raising each point, never the reviews themselves.'}</p>
+    <div class="vd">
+      <div class="vd-top">
+        <span class="vd-share"><b>${v.share}%</b> positive</span>
+        <span class="vd-meter"><i style="width:${v.share}%"></i></span>
+        <span class="vd-n">★ ${p.r.toFixed(1)} average</span>
+      </div>
+      <p class="vd-sum">Reviewers keep coming back to <b>${esc(top.en.toLowerCase())}</b>. The complaint that recurs is <b>${esc(gripe.en.toLowerCase())}</b>.</p>
+      <div class="vdgrid">
+        <div class="vdcol"><span class="vd-h good">Praised</span>${v.pos.map(t => row(t, 'good')).join('')}</div>
+        <div class="vdcol"><span class="vd-h bad">Raised</span>${v.neg.map(t => row(t, 'bad')).join('')}</div>
+      </div>
+    </div>`;
+}
+
+/* ---------- where to buy ----------
+   Search links, not deep links: a product URL rots the moment a listing moves,
+   a search for brand + name does not.
+------------------------------------------------------------------ */
+const SEARCH = {
+  'Olive Young': 'https://www.oliveyoung.co.kr/store/search/getSearchMain.do?query={q}',
+  'MUSINSA Beauty': 'https://www.musinsa.com/search/goods?keyword={q}',
+  'Kurly Beauty': 'https://www.kurly.com/search?sword={q}',
+  'Coupang': 'https://www.coupang.com/np/search?q={q}',
+  'Naver Smart Store': 'https://search.shopping.naver.com/search/all?query={q}',
+  'LOTTE ON': 'https://www.lotteon.com/search/search/search.ecn?render=search&platform=pc&query={q}',
+  'SSG.COM': 'https://www.ssg.com/search.ssg?target=all&query={q}',
+  'ZIGZAG': 'https://zigzag.kr/search?keyword={q}',
+  'ABLY': 'https://m.a-bly.com/search?search_term={q}',
+  'AMORE Mall': 'https://www.amoremall.com/kr/ko/search?query={q}',
+  '29CM': 'https://www.29cm.co.kr/search?keyword={q}'
+};
+
+function shopLink(channel, p) {
+  const tmpl = SEARCH[channel];
+  if (!tmpl) return esc(channel);
+  const q = encodeURIComponent(`${p.b} ${p.n}`);
+  return `<a class="ch-link" href="${tmpl.replace('{q}', q)}" target="_blank" rel="noopener noreferrer"
+    title="Search ${esc(channel)} for this product">${esc(channel)}<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 5h11v11M19 5 5 19"/></svg></a>`;
+}
+
+/* ---------- the four cards ----------
+   Age and Gender describe the person, Category describes the empty slot,
+   Preference describes the kind of house they buy from.
+------------------------------------------------------------------ */
+const STEPS = [
+  {
+    k: 'age', label: 'Age', short: 'How old is your skin?', q: 'How old is your skin?',
+    d: 'Age is not a number here — it is the name for how much oil you make and how fast you recover. The same ingredient gets used differently by decade.',
+    opts: [
+      { v: 10, t: 'Teens', d: 'Oil and breakouts' },
+      { v: 20, t: '20s', d: 'Hydration against pores' },
+      { v: 30, t: '30s', d: 'Tone and early firmness' },
+      { v: 40, t: '40s', d: 'Lines and elasticity' },
+      { v: 50, t: '50s and up', d: 'Nourishment and repair' }
+    ]
+  },
+  {
+    k: 'gender', label: 'Gender', short: 'Which lines suit you?', q: 'Which lines should I look at?',
+    d: 'Gender does not divide skin. It mostly tracks how a house tunes texture and scent, so take Both if it makes no difference to you.',
+    opts: [
+      { v: 'f', t: "Women's lines", d: 'Colour cosmetics included' },
+      { v: 'm', t: "Men's lines", d: 'Unscented, lighter textures' },
+      { v: 'a', t: 'Both', d: 'Unisex first, both lines in play' }
+    ]
+  },
+  {
+    k: 'use', label: 'Category', short: 'What are you filling?', q: 'What are you filling today?',
+    d: 'One shelf at a time. Pick the slot on your counter that is empty right now.',
+    opts: [
+      { v: 'skin', t: 'Skincare', d: 'Toner · Serum · Cream' },
+      { v: 'sun', t: 'Sun care', d: 'Sunscreen · Sun stick' },
+      { v: 'make', t: 'Makeup', d: 'Base · Lip · Eye' },
+      { v: 'clean', t: 'Cleansing', d: 'Foam · Oil · Balm' },
+      { v: 'hair', t: 'Hair & Body', d: 'Shampoo · Body lotion' },
+      { v: 'scent', t: 'Fragrance', d: 'Perfume · Hand cream' }
+    ]
+  },
+  {
+    k: 'vibe', label: 'Preference', short: 'What kind of house?', q: 'What kind of house do you buy from?',
+    d: 'Same ingredients, different attitude. This is about the brand you are drawn to, not the product. Last card.',
+    opts: [
+      { v: 'derma', t: 'Clinical', d: 'Ingredient-led, derma' },
+      { v: 'clean', t: 'Clean & vegan', d: 'Gentle formulas, certified' },
+      { v: 'lux', t: 'Luxury', d: 'Finish and packaging' },
+      { v: 'value', t: 'Budget-first', d: 'Size and price above all' },
+      { v: 'any', t: 'Open to anything', d: 'Whatever rates best' }
+    ]
+  }
+];
+
+const BUDGETS = [
+  { v: 10000, t: '₩10,000' }, { v: 20000, t: '₩20,000' }, { v: 30000, t: '₩30,000' },
+  { v: 50000, t: '₩50,000' }, { v: 80000, t: '₩80,000' }, { v: 150000, t: '₩150,000' },
+  { v: Infinity, t: 'No limit' }
+];
+
+let ans = {}, openIdx = null, budgetIdx = 6, view = 'gate', shopStep = 'stage';
+const answered = () => STEPS.filter(s => ans[s.k] !== undefined).length;
+
+/* ---------- the deck ---------- */
+const CHEV = '<svg class="oc" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M9 5l7 7-7 7"/></svg>';
+
+function renderDeck() {
+  const deck = $('#deck');
+  deck.classList.toggle('open-mode', openIdx !== null);
+  deck.innerHTML = STEPS.map((s, i) => {
+    const vname = `style="view-transition-name:slot-${i}"`;
+    if (openIdx === i) {
+      return `<div class="slot open" ${vname}>
+        <div class="open-head">
+          <div>
+            <span class="slot-n">0${i + 1}<span class="open-k">${s.label}</span></span>
+            <h2 class="open-q">${s.q}</h2>
+            <p class="open-d">${s.d}</p>
+          </div>
+          <button class="shut" id="shut" aria-label="Close card">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+          </button>
+        </div>
+        <div class="olist">
+          ${s.opts.map((o, n) => `<button class="orow" data-v="${o.v}">
+            <span class="oi">${String(n + 1).padStart(2, '0')}</span>
+            <span class="ot">${o.t}</span>
+            <span class="od">${o.d}</span>${CHEV}
+          </button>`).join('')}
+        </div>
+      </div>`;
+    }
+    const chosen = ans[s.k] !== undefined ? s.opts.find(o => o.v === ans[s.k]) : null;
+    const peek = s.opts.map(o => o.t).join(' · ');
+    return `<button class="slot ${chosen ? 'filled' : ''}" data-i="${i}" ${vname}>
+      <span class="ghost" aria-hidden="true">0${i + 1}</span>
+      <span class="slot-head"><span class="slot-n">0${i + 1}</span><span class="slot-k">${s.label}</span></span>
+      <span class="slot-v">${chosen ? esc(chosen.t) : s.short}</span>
+      <span class="slot-d">${chosen ? esc(chosen.d) : peek}</span>
+      <span class="slot-re">${chosen ? 'Change' : 'Choose →'}</span>
+    </button>${chosen ? `<button class="clear" data-clear="${i}" title="Clear this card" aria-label="Clear ${s.label}">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>` : ''}`;
+  }).map(h => h.startsWith('<div class="slot open"') ? h : `<span class="cell">${h}</span>`).join('');
+
+  deck.querySelectorAll('[data-clear]').forEach(b => b.addEventListener('click', e => {
+    e.stopPropagation();
+    delete ans[STEPS[+b.dataset.clear].k];
+    vt(() => renderDeck());
+  }));
+  deck.querySelectorAll('.slot[data-i]').forEach(b =>
+    b.addEventListener('click', () => vt(() => { openIdx = +b.dataset.i; renderDeck(); })));
+  const shut = $('#shut');
+  if (shut) shut.addEventListener('click', () => vt(() => { openIdx = null; renderDeck(); }));
+  deck.querySelectorAll('.orow').forEach(b => b.addEventListener('click', () => {
+    const raw = b.dataset.v;
+    choose(openIdx, isNaN(Number(raw)) ? raw : Number(raw));
+  }));
+  renderRail();
+}
+
+function choose(i, v) {
+  ans[STEPS[i].k] = v;
+  openIdx = null;
+  const done = answered() === 4;
+  vt(() => { renderDeck(); });
+  if (done) setTimeout(() => { shopStep = 'reveal'; setView('shop'); }, CALM ? 60 : 760);
+}
+
+function renderRail() {
+  const n = answered();
+  $('#rail').innerHTML = `<span>0${Math.min(n + 1, 4)}</span>` +
+    STEPS.map((_, i) => `<i class="${i < n ? 'on' : ''}"></i>`).join('') + `<span>04</span>`;
+  const foot = $('#stage-foot');
+  if (n === 0) foot.innerHTML = 'Fill all four and the result page opens';
+  else if (n < 4) foot.innerHTML = `${n} of 4 filled · <button class="reset" id="reset">Start over</button>`;
+  else foot.innerHTML = `All four filled · <button class="reset" id="tores">See the result</button> · <button class="reset" id="reset">Start over</button>`;
+  const rs = $('#reset');
+  if (rs) rs.addEventListener('click', reset);
+  const tr = $('#tores');
+  if (tr) tr.addEventListener('click', () => { shopStep = 'reveal'; vt(() => setView('shop')); });
+}
+
+function reset() {
+  ans = {}; openIdx = null; budgetIdx = 6; shopStep = 'stage';
+  vt(() => { renderDeck(); setView('shop'); });
+}
+
+/* ---------- scoring ---------- */
+function score(p, a, cap) {
+  let s = 28;
+  if (p.a.includes(a.age)) s += 18;
+  else if (p.a.some(x => Math.abs(x - a.age) <= 10)) s += 8;
+  else s -= 9;
+  if (a.gender === 'a') s += (p.g === 'a' ? 13 : 2);
+  else if (p.g === a.gender) s += 14;
+  else if (p.g === 'a') s += 9;
+  else s -= 30;
+  if (a.vibe === 'any') s += 7; else if (p.v === a.vibe) s += 14; else s -= 2;
+  s += (p.r - 4.3) * 22;
+  s += Math.min(6, Math.log10(p.rv + 1) * 1.25);
+  const price = band(p).mid;
+  if (price <= cap) s += 8; else s -= Math.min(46, ((price - cap) / cap) * 70);
+  return s;
+}
+const pct = s => Math.max(12, Math.min(99, Math.round(s)));
+function ranked() {
+  const cap = BUDGETS[budgetIdx].v === Infinity ? 1e9 : BUDGETS[budgetIdx].v;
+  return P.filter(p => p.c === ans.use).map(p => ({ p, s: score(p, ans, cap) })).sort((x, y) => y.s - x.s);
+}
+</script>
+<script>
+/* ---------- candidate card ---------- */
+function card(p, o) {
+  o = o || {};
+  const l = low(p), all = offers(p), gap = all.length > 1 ? all[all.length - 1][1] - l[1] : 0;
+  const hit = ans.age !== undefined && p.a.includes(ans.age);
+  const range = p.a.length > 1 ? `${p.a[0]}–${p.a[p.a.length - 1]}` : `${p.a[0]}`;
+  return `<button class="card" data-id="${p.i}">
+    <span class="card-shot">
+      ${o.rank ? `<span class="rk">No.${o.rank}</span>` : ''}
+      ${o.score ? `<span class="sc">${o.score}</span>` : ''}${pack(p)}
+    </span>
+    <span class="card-b">
+      <span class="card-br">${esc(p.b)}</span>
+      <span class="card-n">${esc(p.n)}</span>
+      <span class="card-sp">${esc(p.sp)} · ${VIBE[p.v]}</span>
+      <span class="tags">
+        <span class="tag ${hit ? 'hit' : ''}">${range}</span>
+        ${p.cn.slice(0, 2).map(c => `<span class="tag">${CONCERN[c]}</span>`).join('')}
+      </span>
+      <span class="card-f">
+        <span class="card-p"><span class="num">${bandText(p)}</span><small>across ${all.length} stores</small></span>
+        <span class="rate">★ <b>${p.r.toFixed(1)}</b></span>
+      </span>
+    </span>
+  </button>`;
+}
+function bindCards(root) {
+  root.querySelectorAll('.card').forEach(b => b.addEventListener('click', () => openModal(+b.dataset.id)));
+}
+
+/* ---------- result page ---------- */
+function renderReveal() {
+  const inCat = P.filter(x => x.c === ans.use).length;
+  $('#v-reveal').innerHTML = `
+    <div class="reveal-head anim">
+      <span class="eyebrow">Today's One</span>
+      <h1 class="reveal-h1">${inCat} ${USE[ans.use].toLowerCase()} products,<br>filtered down to <em>this one</em>.</h1>
+      <div class="picks">
+        <span class="pchip g">${AGE[ans.age]}</span>
+        <span class="pchip g">${GENDER[ans.gender]}</span>
+        <span class="pchip g">${USE[ans.use]}</span>
+        <span class="pchip g">${ans.vibe === 'any' ? 'Open to anything' : VIBE[ans.vibe]}</span>
+      </div>
+    </div>
+    <div class="budget anim" style="animation-delay:.1s;margin-top:34px">
+      <span class="budget-l">Budget cap</span>
+      <input type="range" id="brange" min="0" max="6" step="1" value="${budgetIdx}" aria-label="Budget cap">
+      <b id="bval">${BUDGETS[budgetIdx].t}</b>
+    </div>
+    <div id="rbody"></div>
+    <div class="actions">
+      <button class="btn p" id="again">Change my cards</button>
+      <button class="btn" id="restart">Start over</button>
+      <button class="btn" id="tocat">Browse the full catalog</button>
+    </div>`;
+  $('#brange').addEventListener('input', e => {
+    budgetIdx = +e.target.value;
+    $('#bval').textContent = BUDGETS[budgetIdx].t;
+    renderRevealBody();
+  });
+  $('#again').addEventListener('click', () => { shopStep = 'stage'; vt(() => setView('shop')); });
+  $('#restart').addEventListener('click', reset);
+  $('#tocat').addEventListener('click', () => setView('catalog'));
+  renderRevealBody();
+}
+
+function renderRevealBody() {
+  const list = ranked(), body = $('#rbody');
+  if (!list.length) {
+    body.innerHTML = `<div class="empty" style="margin-top:34px"><b>Nothing matches those answers.</b>Raise the budget cap and try again.</div>`;
+    return;
+  }
+  const top = list[0], p = top.p, all = offers(p), l = all[0];
+  const save = all.length > 1 ? all[all.length - 1][1] - l[1] : 0;
+
+  const rs = [];
+  rs.push(p.a.includes(ans.age)
+    ? `Formulated with ${AGE[ans.age].toLowerCase()} as the core user.`
+    : `Most repurchased by the age groups either side of ${AGE[ans.age].toLowerCase()}.`);
+  rs.push(ans.gender === 'a'
+    ? (p.g === 'a' ? 'A texture and scent that were never split by gender.' : `Sold as a ${GENDER[p.g].toLowerCase()}'s line, but the formula itself works for anyone.`)
+    : (p.g === ans.gender ? `Texture and scent tuned for ${GENDER[ans.gender].toLowerCase()}.` : 'Built to be used regardless of gender.'));
+  rs.push(ans.vibe === 'any'
+    ? `Rated ${p.r.toFixed(1)} across ${won(p.rv).slice(1)} reviews — the thickest evidence in this category.`
+    : (p.v === ans.vibe ? `Exactly the kind of house a ${VIBE[ans.vibe].toLowerCase()} shopper buys from.` : `A ${VIBE[p.v].toLowerCase()} house, but it still scored highest overall.`));
+
+  body.innerHTML = `
+    <div class="altar">
+      <div class="podium">${pack(p)}<span class="plate"></span></div>
+      <div class="verdict anim" style="animation-delay:.2s">
+        <span class="v-score">Match ${pct(top.s)} · #1 of ${list.length}</span>
+        <span class="v-brand">${esc(p.b)}</span>
+        <h2 class="v-name">${esc(p.n)}</h2>
+        <p class="v-spec">${esc(p.sp)} · ${p.cn.map(c => CONCERN[c]).join(' · ')}</p>
+        <p class="v-why">${esc(p.w)}</p>
+        <div class="rlist">${rs.map(r => `<div class="r"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12.5 5.4 5.5L20 7"/></svg><span>${r}</span></div>`).join('')}</div>
+        <div class="v-buy">
+          <div class="v-price"><span class="num">${bandText(p)}</span><small>Typical range · ${all.length} stores</small></div>
+          <p class="v-save">${save > 0
+      ? `<b>${esc(all[0][0])}</b> ranked cheapest, about <b>${Math.round((all[all.length - 1][1] / all[0][1] - 1) * 100)}%</b> under the dearest.<br>Open a store below for its live price.`
+      : `The stores sit level on this one.<br>Open any of them below for the live price.`}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="channels">
+      <div class="warn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 10v4M12 17.2v.1"/></svg><div>${LIVE ? `<b>Ranges collected ${esc(SOURCE.when)} via ${esc(SOURCE.label)}.</b> Stores change prices daily and run their own promotions — treat this as a starting point and open a store for its live price.` : `<b>Sample ranges — this build ships without live pricing.</b> The ordering and bands illustrate the layout; they are not any store's real price. Open a store below to see what it actually charges.`}</div></div>
+      <div class="sec"><h3>Where to buy</h3><span class="line"></span><span class="eyebrow">${all.length} Channels</span></div>
+      <table class="ctable">
+        <thead><tr><th>Channel</th><th>Position</th></tr></thead>
+        <tbody>${ladder(p).map(r => `<tr class="${r.first ? 'best' : ''}">
+          <td>${shopLink(r.ch, p)}${r.first ? '<span class="bmark">Ranked cheapest</span>' : ''}</td>
+          <td>${r.first ? 'baseline' : '+' + r.over + '%'}</td></tr>`).join('')}</tbody>
+      </table>
+    </div>
+
+    ${verdictBlock(p)}
+
+    <div class="sec"><h3>Also worth adding</h3><span class="line"></span><span class="eyebrow">${Math.min(7, list.length - 1)} Items</span></div>
+    <div class="grid">${list.slice(1, 8).map((x, i) => card(x.p, { rank: i + 2, score: pct(x.s) })).join('')}</div>`;
+  bindCards(body);
+}
+
+/* ---------- catalog ---------- */
+const cat = { age: 'all', gender: 'all', use: 'all', vibe: 'all', q: '', sort: 'rec' };
+function chips(host, items, key) {
+  $(host).innerHTML = items.map(([v, t]) => `<button class="fchip ${cat[key] === v ? 'on' : ''}" data-v="${v}">${t}</button>`).join('');
+  $(host).querySelectorAll('.fchip').forEach(b => b.addEventListener('click', () => {
+    cat[key] = isNaN(Number(b.dataset.v)) ? b.dataset.v : Number(b.dataset.v);
+    buildFilters(); renderCatalog();
+  }));
+}
+function buildFilters() {
+  chips('#f-age', [['all', 'All'], ...Object.entries(AGE).map(([k, v]) => [Number(k), v])], 'age');
+  chips('#f-gender', [['all', 'All'], ['f', 'Women'], ['m', 'Men'], ['a', 'Unisex']], 'gender');
+  chips('#f-use', [['all', 'All'], ...Object.entries(USE)], 'use');
+  chips('#f-vibe', [['all', 'All'], ...Object.entries(VIBE)], 'vibe');
+  chips('#f-sort', [['rec', 'Recommended'], ['price', 'Lowest price'], ['rate', 'Rating']], 'sort');
+}
+function renderCatalog() {
+  const q = cat.q.trim().toLowerCase();
+  const l = P.filter(p =>
+    (cat.age === 'all' || p.a.includes(cat.age)) &&
+    (cat.gender === 'all' || p.g === cat.gender) &&
+    (cat.use === 'all' || p.c === cat.use) &&
+    (cat.vibe === 'all' || p.v === cat.vibe) &&
+    (!q || (p.b + ' ' + p.n + ' ' + p.sp).toLowerCase().includes(q)));
+  if (cat.sort === 'price') l.sort((a, b) => low(a)[1] - low(b)[1]);
+  else if (cat.sort === 'rate') l.sort((a, b) => b.r - a.r);
+  else l.sort((a, b) => (b.r * Math.log10(b.rv + 1)) - (a.r * Math.log10(a.rv + 1)));
+  $('#f-cnt').textContent = `${l.length} / ${P.length}`;
+  $('#cat-grid').innerHTML = l.length ? l.map(p => card(p)).join('')
+    : `<div class="empty"><b>Nothing matches those filters.</b>Try releasing one of them.</div>`;
+  bindCards($('#cat-grid'));
+}
+
+/* ---------- store ----------
+   Per channel: how much it carries, how often it lands the lowest price.
+------------------------------------------------------------------ */
+function storeStats() {
+  const s = {};
+  P.forEach(p => {
+    const cheapest = low(p)[1];
+    p.o.forEach(([m, price]) => {
+      const row = s[m] || (s[m] = { n: 0, wins: 0, sum: 0, ratio: 0, cats: {} });
+      row.n++; row.sum += price; row.ratio += price / cheapest;
+      if (price === cheapest) row.wins++;
+      row.cats[p.c] = (row.cats[p.c] || 0) + 1;
+    });
+  });
+  return Object.entries(s).map(([m, r]) => ({
+    m, n: r.n, wins: r.wins,
+    share: Math.round((r.wins / r.n) * 100),
+    avg: Math.round(r.sum / r.n),
+    premium: Math.round((r.ratio / r.n - 1) * 1000) / 10,
+    top: Object.entries(r.cats).sort((a, b) => b[1] - a[1])[0][0]
+  })).sort((a, b) => b.n - a.n || b.share - a.share);
+}
+
+function renderStores() {
+  const rows = storeStats();
+  const peak = Math.max(...rows.map(r => r.share), 1);
+  $('#store-grid').innerHTML = rows.map((r, i) => `
+    <div class="store ${r.share === peak ? 'lead' : ''}">
+      <span class="store-r">${String(i + 1).padStart(2, '0')}${r.share === peak ? ' · Cheapest most often' : ''}</span>
+      <span class="store-n">${esc(r.m)}</span>
+      <span class="store-s">${USE[r.top]}-led · ${r.premium < 0.5 ? 'sits at or near the lowest' : `runs <b style="color:var(--ink2);font-weight:400">+${r.premium}%</b> over the lowest, on average`}</span>
+      <div class="smetrics">
+        <span class="sm"><b>${r.n}</b><span>Products carried</span></span>
+        <span class="sm"><b>${r.wins}</b><span>Times cheapest</span></span>
+      </div>
+      <div class="sbar"><i style="width:${Math.round((r.share / peak) * 100)}%"></i></div>
+      <div class="sbar-l"><span>Lowest on ${r.wins} of ${r.n}</span><span>${r.share}%</span></div>
+    </div>`).join('');
+}
+
+/* ---------- detail ---------- */
+function openModal(id) {
+  const p = P.find(x => x.i === id), all = offers(p);
+  $('#modal-root').innerHTML = `
+    <div class="ovl" id="ovl" role="dialog" aria-modal="true" aria-label="${esc(p.b + ' ' + p.n)}">
+      <div class="modal">
+        <button class="x" id="mx" aria-label="Close"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+        <div class="modal-in">
+          <div class="modal-shot">${pack(p)}</div>
+          <div class="modal-b">
+            <span class="v-brand">${esc(p.b)}</span>
+            <h3 class="v-name" style="font-size:28px">${esc(p.n)}</h3>
+            <p class="v-spec">${esc(p.sp)} · ${USE[p.c]} · ${bandText(p)}</p>
+            <dl class="kv">
+              <dt>Age</dt><dd>${p.a.map(a => AGE[a]).join(', ')}</dd>
+              <dt>Gender</dt><dd>${p.g === 'a' ? 'Unisex' : GENDER[p.g] + "'s lines"}</dd>
+              <dt>Concerns</dt><dd>${p.cn.map(c => CONCERN[c]).join(' · ')}</dd>
+              <dt>Preference</dt><dd>${VIBE[p.v]}</dd>
+              <dt>Rating</dt><dd>★ ${p.r.toFixed(1)} <span class="num" style="color:var(--ink4);font-size:11.5px">${won(p.rv).slice(1)} reviews</span></dd>
+            </dl>
+            <p style="font-size:13px;color:var(--ink2);line-height:1.8;margin-bottom:20px">${esc(p.w)}</p>
+            <table class="ctable">
+              <thead><tr><th>Channel</th><th>Position</th></tr></thead>
+              <tbody>${ladder(p).map(r => `<tr class="${r.first ? 'best' : ''}">
+                <td>${shopLink(r.ch, p)}${r.first ? '<span class="bmark">Ranked cheapest</span>' : ''}</td>
+                <td>${r.first ? 'baseline' : '+' + r.over + '%'}</td></tr>`).join('')}</tbody>
+            </table>
+            <p style="font-size:11px;color:var(--ink4);margin-top:14px;line-height:1.6">${LIVE ? `Collected ${esc(SOURCE.when)} · ${esc(SOURCE.label)}. Open a store for its live price.` : `Sample data — no live pricing in this build. Open a store for its real price.`}</p>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  const close = () => { $('#modal-root').innerHTML = ''; document.removeEventListener('keydown', onKey); };
+  const onKey = e => { if (e.key === 'Escape') close(); };
+  $('#mx').addEventListener('click', close);
+  $('#ovl').addEventListener('click', e => { if (e.target.id === 'ovl') close(); });
+  document.addEventListener('keydown', onKey);
+  $('#mx').focus();
+}
+
+/* ---------- views ---------- */
+function setView(v) {
+  view = v;
+  const shopping = v === 'shop';
+  $('#v-gate').classList.toggle('hidden', v !== 'gate');
+  $('#v-stage').classList.toggle('hidden', !(shopping && shopStep === 'stage'));
+  $('#v-reveal').classList.toggle('hidden', !(shopping && shopStep === 'reveal'));
+  $('#v-catalog').classList.toggle('hidden', v !== 'catalog');
+  $('#v-store').classList.toggle('hidden', v !== 'store');
+  ['gate', 'shop', 'catalog', 'store'].forEach(k => $('#tab-' + k).setAttribute('aria-selected', String(k === v)));
+  if (shopping && shopStep === 'reveal') renderReveal();
+  window.scrollTo({ top: 0, behavior: CALM ? 'auto' : 'smooth' });
+}
+document.querySelectorAll('.tabs button').forEach(b =>
+  b.addEventListener('click', () => setView(b.dataset.view)));
+document.querySelectorAll('.door').forEach(b =>
+  b.addEventListener('click', () => vt(() => setView(b.dataset.view))));
+
+/* ---------- header controls ---------- */
+const ICON = {
+  expand: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H3v6M15 3h6v6M9 21H3v-6M15 21h6v-6"/></svg>',
+  shrink: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h6V3M21 9h-6V3M3 15h6v6M21 15h-6v6"/></svg>'
+};
+
+/* Background palette — each swatch is a full theme, drawn from Korean beauty retail. */
+const THEMES = [
+  { k: 'porcelain', t: 'Porcelain', dot: '#FFFFFF' },
+  { k: 'blush', t: 'Blush', dot: '#F7DCE2' },
+  { k: 'aqua', t: 'Aqua', dot: '#CFE3F0' },
+  { k: 'olive', t: 'Olive', dot: '#00874C' },
+  { k: 'plum', t: 'Plum', dot: '#3E1155' },
+  { k: 'noir', t: 'Noir', dot: '#0A0A0C' }
+];
+function themeNow() {
+  const t = document.documentElement.getAttribute('data-theme');
+  return THEMES.some(x => x.k === t) ? t : 'noir';
+}
+function buildPalette() {
+  $('#swatches').innerHTML = THEMES.map(t =>
+    `<button class="sw" role="radio" data-set="${t.k}" aria-checked="false" title="${t.t}" aria-label="${t.t} background">
+      <span class="sw-dot" style="background:${t.dot}"></span>
+    </button>`).join('');
+  $('#swatches').querySelectorAll('.sw').forEach(b =>
+    b.addEventListener('click', () => setTheme(b.dataset.set)));
+}
+function paintPalette() {
+  const cur = themeNow();
+  $('#swatches').querySelectorAll('.sw').forEach(b =>
+    b.setAttribute('aria-checked', String(b.dataset.set === cur)));
+}
+function setTheme(k) {
+  document.documentElement.setAttribute('data-theme', k);
+  try { localStorage.setItem('yun-theme', k); } catch (e) { }
+  paintPalette();
+}
+
+/* Fullscreen where the host allows it; a wider layout where it does not. */
+function paintFull() {
+  const on = !!document.fullscreenElement || document.documentElement.classList.contains('wide');
+  $('#t-full').innerHTML = on ? ICON.shrink : ICON.expand;
+  $('#t-full').setAttribute('aria-label', on ? 'Exit fullscreen' : 'Fullscreen');
+}
+async function toggleFull() {
+  try {
+    if (!document.fullscreenElement) await document.documentElement.requestFullscreen();
+    else await document.exitFullscreen();
+  } catch (e) {
+    document.documentElement.classList.toggle('wide');
+  }
+  paintFull();
+}
+$('#t-full').addEventListener('click', toggleFull);
+document.addEventListener('fullscreenchange', paintFull);
+
+/* Close: leave fullscreen, clear the session, return to the entrance. */
+$('#t-close').addEventListener('click', () => {
+  if (document.fullscreenElement) document.exitFullscreen().catch(() => { });
+  document.documentElement.classList.remove('wide');
+  $('#modal-root').innerHTML = '';
+  ans = {}; openIdx = null; budgetIdx = 6; shopStep = 'stage';
+  Object.assign(cat, { age: 'all', gender: 'all', use: 'all', vibe: 'all', q: '', sort: 'rec' });
+  $('#f-q').value = '';
+  buildFilters(); renderCatalog(); renderDeck(); paintFull();
+  vt(() => setView('gate'));
+});
+document.addEventListener('keydown', e => {
+  if (e.key !== 'Escape') return;
+  if (openIdx !== null) vt(() => { openIdx = null; renderDeck(); });
+  else if (view !== 'gate' && !$('#modal-root').innerHTML) vt(() => setView('gate'));
+});
+
+/* ---------- boot ---------- */
+(function boot() {
+  const malls = new Set(); P.forEach(p => p.o.forEach(o => malls.add(o[0])));
+  const brands = new Set(P.map(p => p.b));
+  $('#s-n').textContent = P.length;
+  $('#s-b').textContent = brands.size;
+  $('#s-m').textContent = malls.size;
+  $('#d-n').textContent = P.length;
+  $('#d-m').textContent = malls.size;
+  $('#s-d').textContent = 'SNAPSHOT ' + SNAPSHOT;
+  $('#src').textContent = LIVE ? SOURCE.label : 'Sample data';
+  $('#src').className = 'src' + (LIVE ? ' live' : '');
+  $('#src').title = LIVE ? `Collected ${SOURCE.when}` : 'This build ships without live pricing';
+  $('#f-q').addEventListener('input', e => { cat.q = e.target.value; renderCatalog(); });
+  let saved = null;
+  try { saved = localStorage.getItem('yun-theme'); } catch (e) { }
+  const host = document.documentElement.getAttribute('data-theme');
+  buildPalette();
+  setTheme(THEMES.some(t => t.k === saved) ? saved : (host === 'light' ? 'porcelain' : 'noir'));
+  paintFull();
+  buildFilters(); renderCatalog(); renderStores(); renderDeck(); setView('gate');
+})();
+</script>
+
+</body>
+</html>
