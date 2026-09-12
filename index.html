@@ -1505,7 +1505,7 @@ $('#t-full').addEventListener('click', toggleFull);
 document.addEventListener('fullscreenchange', paintFull);
 
 /* Close: leave fullscreen, clear the session, return to the entrance. */
-$('#t-close').addEventListener('click', () => {/
+$('#t-close').addEventListener('click', () => {
   if (document.fullscreenElement) document.exitFullscreen().catch(() => { });
   document.documentElement.classList.remove('wide');
   $('#modal-root').innerHTML = '';
