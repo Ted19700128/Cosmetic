@@ -5,8 +5,8 @@
 doctype·charset·viewport 가 없습니다. 그대로 올리면 한글이 깨지고
 모바일 레이아웃이 무너집니다. 이 스크립트가 문서로 만들어 줍니다.
 
-    python build.py
-    python build.py --url https://yourname.dev     # og:image/og:url 까지 채움
+    python build.py                                # og:image/og:url 에 DEFAULT_URL 사용
+    python build.py --url https://yourname.dev     # 커스텀 도메인으로 덮어쓰기
 """
 from __future__ import annotations
 
@@ -18,6 +18,8 @@ from pathlib import Path
 ROOT = Path(__file__).parent
 SRC = ROOT / "index.html"
 OUT = ROOT / "dist" / "index.html"
+
+DEFAULT_URL = "https://ted19700128.github.io/Cosmetic"
 
 DESC = ("Answer four cards and one Korean beauty product is left standing — with the price band "
         "across eleven online stores and where it ranks cheapest.")
@@ -77,8 +79,8 @@ def build(base_url: str) -> Path:
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("--url", default="https://example.com",
-                    help="배포될 주소. 링크 미리보기(og:image, og:url)에 쓰입니다")
+    ap.add_argument("--url", default=DEFAULT_URL,
+                    help=f"배포될 주소. 링크 미리보기(og:image, og:url)에 쓰입니다 (기본: {DEFAULT_URL})")
     args = ap.parse_args()
     out = build(args.url.rstrip("/"))
     size = out.stat().st_size
